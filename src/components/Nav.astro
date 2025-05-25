@@ -1,0 +1,51 @@
+---
+import Search from './Search';
+
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Articles', href: '/articles' },
+  { label: 'About', href: '/about' },
+];
+
+function isActive(itemHref: string): boolean {
+  if (itemHref === '/') {
+    return currentPath === '/';
+  }
+  return currentPath.startsWith(itemHref);
+}
+---
+
+<header class="bg-white shadow-sm border-b border-meridian-light-gray">
+  <nav class="container py-4">
+    <div class="flex items-center justify-between gap-4">
+      <a href="/" class="text-2xl font-bold gradient-meridian bg-clip-text text-transparent whitespace-nowrap">
+        Project Meridian
+      </a>
+      
+      <div class="flex items-center gap-6 flex-1 max-w-2xl">
+        <ul class="flex items-center space-x-6">
+          {navItems.map((item) => (
+            <li>
+              <a 
+                href={item.href}
+                class={`font-medium transition-colors ${
+                  isActive(item.href) 
+                    ? 'text-meridian-burgundy' 
+                    : 'text-meridian-steel hover:text-meridian-burgundy'
+                }`}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        
+        <div class="flex-1 max-w-xs">
+          <Search client:load />
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

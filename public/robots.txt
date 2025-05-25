@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jw41784.github.io/meridian/sitemap-index.xml

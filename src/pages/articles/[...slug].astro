@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: article,
+  }));
+}
+
+type Props = CollectionEntry<'articles'>;
+
+const article = Astro.props;
+const { Content } = await article.render();
+
+const formattedDate = new Date(article.data.publishDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<BaseLayout 
+  title={article.data.title}
+  description={article.data.description}
+  image={article.data.image?.src}
+>
+  <article class="container py-12">
+    <header class="mb-8 text-center">
+      <h1 class="text-4xl font-bold mb-4">{article.data.title}</h1>
+      
+      <div class="flex items-center justify-center gap-4 text-sm text-meridian-steel mb-4">
+        <span>{article.data.author}</span>
+        <span>•</span>
+        <time datetime={article.data.publishDate.toISOString()}>
+          {formattedDate}
+        </time>
+      </div>
+      
+      <div class="flex flex-wrap gap-2 justify-center">
+        {article.data.tags.map((tag) => (
+          <a href={`/tags/${tag}`} class="tag">
+            {tag}
+          </a>
+        ))}
+      </div>
+    </header>
+    
+    {article.data.image && (
+      <img 
+        src={article.data.image.src} 
+        alt={article.data.image.alt}
+        class="w-full max-w-4xl mx-auto rounded-lg shadow-lg mb-8"
+      />
+    )}
+    
+    <div class="prose prose-lg mx-auto max-w-4xl">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

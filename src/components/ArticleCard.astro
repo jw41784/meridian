@@ -1,0 +1,54 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  publishDate: Date;
+  author: string;
+  tags: string[];
+  slug: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
+}
+
+const { title, description, publishDate, author, tags, slug, image } = Astro.props;
+
+const formattedDate = new Date(publishDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<article class="card p-6 h-full flex flex-col">
+  {image && (
+    <img 
+      src={image.src} 
+      alt={image.alt} 
+      class="w-full h-48 object-cover rounded-md mb-4"
+    />
+  )}
+  
+  <h2 class="text-xl font-semibold mb-2">
+    <a href={`/articles/${slug}`} class="hover:text-meridian-burgundy transition-colors">
+      {title}
+    </a>
+  </h2>
+  
+  <p class="text-meridian-steel mb-4 flex-grow">
+    {description}
+  </p>
+  
+  <div class="flex flex-wrap gap-2 mb-4">
+    {tags.map((tag) => (
+      <a href={`/tags/${tag}`} class="tag">
+        {tag}
+      </a>
+    ))}
+  </div>
+  
+  <div class="text-sm text-meridian-steel">
+    <span>{author}</span> • <time datetime={publishDate.toISOString()}>{formattedDate}</time>
+  </div>
+</article>

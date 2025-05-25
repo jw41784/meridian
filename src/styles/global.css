@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #4A2532;
+    --color-secondary: #607D8B;
+    --color-light: #E0E4E8;
+    --color-dark: #1A1A1A;
+    --color-text: #333333;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased bg-white text-meridian-text;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-meridian-dark;
+  }
+
+  a {
+    @apply text-meridian-burgundy hover:text-meridian-steel transition-colors;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-meridian-burgundy hover:bg-meridian-steel focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-meridian-burgundy transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-meridian-steel hover:bg-meridian-burgundy focus:ring-meridian-steel;
+  }
+
+  .btn-outline {
+    @apply bg-transparent text-meridian-burgundy border-meridian-burgundy hover:bg-meridian-burgundy hover:text-white;
+  }
+
+  .card {
+    @apply bg-white border border-meridian-light-gray rounded-lg shadow-sm hover:shadow-md transition-shadow;
+  }
+
+  .tag {
+    @apply inline-block px-2 py-1 text-xs font-medium rounded-md bg-meridian-light-gray text-meridian-steel hover:bg-meridian-steel hover:text-white transition-colors;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .gradient-meridian {
+    @apply bg-gradient-to-r from-meridian-burgundy to-meridian-steel;
+  }
+}
