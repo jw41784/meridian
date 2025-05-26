@@ -17,9 +17,7 @@ const year = new Date().getFullYear();
         <h3 class="font-semibold mb-2">Quick Links</h3>
         <ul class="space-y-1 text-sm">
           <li><a href={getUrl('articles')} class="text-meridian-steel hover:text-meridian-burgundy">Articles</a></li>
-          <li><a href={getUrl('work')} class="text-meridian-steel hover:text-meridian-burgundy">Our Work</a></li>
           <li><a href={getUrl('about')} class="text-meridian-steel hover:text-meridian-burgundy">About</a></li>
-          <li><a href={getUrl('contact')} class="text-meridian-steel hover:text-meridian-burgundy">Contact</a></li>
           <li><a href={getUrl('tags')} class="text-meridian-steel hover:text-meridian-burgundy">Browse Tags</a></li>
           <li><a href={getUrl('rss.xml')} class="text-meridian-steel hover:text-meridian-burgundy">RSS Feed</a></li>
         </ul>
@@ -27,9 +25,12 @@ const year = new Date().getFullYear();
       
       <div>
         <h3 class="font-semibold mb-2">Connect</h3>
-        <p class="text-sm text-meridian-steel">
-          Follow us for the latest updates and insights.
+        <p class="text-sm text-meridian-steel mb-2">
+          Questions? Ideas? Let's talk.
         </p>
+        <a href="mailto:info@eudexio.com" class="text-sm text-meridian-burgundy hover:text-meridian-dark">
+          info@eudexio.com
+        </a>
       </div>
     </div>
     
