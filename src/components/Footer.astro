@@ -34,10 +34,13 @@ const year = new Date().getFullYear();
       </div>
     </div>
     
-    <div class="mt-8 pt-8 border-t border-meridian-steel/20 text-center">
-      <p class="text-sm text-meridian-steel">
-        &copy; {year} Project Meridian. All rights reserved.
-      </p>
+    <div class="mt-8 pt-8 border-t border-meridian-steel/20">
+      <div class="flex flex-col items-center gap-4">
+        <img src={getUrl('meridianlogo.svg')} alt="Project Meridian Logo" class="h-12 w-12" />
+        <p class="text-sm text-meridian-steel">
+          &copy; {year} Project Meridian. All rights reserved.
+        </p>
+      </div>
     </div>
   </div>
 </footer>
