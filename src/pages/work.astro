@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    title: "Reinventing a 150-Year-Old Institution",
+    client: "Global Financial Services",
+    description: "How we helped a legacy bank become a digital-first powerhouse without losing its soul.",
+    impact: "40% increase in customer engagement, 3x faster product launches",
+    tags: ["Transformation", "Finance", "Digital"],
+  },
+  {
+    title: "From Hierarchy to Network",
+    client: "Fortune 500 Manufacturer",
+    description: "Dismantling command-and-control to build an adaptive, self-organizing ecosystem.",
+    impact: "60% reduction in decision time, 2x innovation output",
+    tags: ["Organization Design", "Culture", "Leadership"],
+  },
+  {
+    title: "The Startup That Scaled Its Soul",
+    client: "Series C Tech Company",
+    description: "Preserving founder DNA while growing from 50 to 500 in 18 months.",
+    impact: "Top 10 Best Places to Work, 95% culture score retention",
+    tags: ["Scale", "Culture", "Growth"],
+  },
+  {
+    title: "Public Sector Revolution",
+    client: "Major City Government",
+    description: "Turning bureaucracy into a citizen-centered innovation lab.",
+    impact: "80% improvement in service delivery, $12M in efficiency gains",
+    tags: ["Government", "Innovation", "Service Design"],
+  }
+];
+---
+
+<BaseLayout 
+  title="Our Work" 
+  description="Real transformations. Real results. Real humans at the center of it all."
+>
+  <section class="container py-16">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-16">
+        <p class="text-meridian-burgundy font-bold uppercase tracking-wider mb-4">
+          Case Studies in Courage
+        </p>
+        <h1 class="text-5xl md:text-6xl font-bold mb-8">
+          Work That <span class="gradient-meridian bg-clip-text text-transparent">Works</span>
+        </h1>
+        <p class="text-2xl font-light text-meridian-steel max-w-4xl">
+          Every organization has a choice: evolve or become irrelevant. 
+          These are the stories of those who chose evolution—and thrived.
+        </p>
+      </div>
+      
+      <div class="grid gap-12 mb-16">
+        {projects.map((project, index) => (
+          <div class="group">
+            <div class="flex flex-col lg:flex-row gap-8 p-8 rounded-lg border-2 border-transparent hover:border-meridian-burgundy transition-all duration-300">
+              <div class="flex-1">
+                <p class="text-meridian-burgundy font-bold uppercase tracking-wider mb-2">
+                  {project.client}
+                </p>
+                <h2 class="text-3xl font-bold mb-4 group-hover:text-meridian-burgundy transition-colors">
+                  {project.title}
+                </h2>
+                <p class="text-lg text-meridian-steel mb-4">
+                  {project.description}
+                </p>
+                <div class="mb-4">
+                  <p class="font-bold text-meridian-dark mb-1">Impact:</p>
+                  <p class="text-lg">{project.impact}</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span class="px-3 py-1 bg-meridian-light-gray text-meridian-dark rounded-full text-sm">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div class="lg:w-1/3 flex items-center justify-center">
+                <div class="text-6xl font-bold text-meridian-light-gray group-hover:text-meridian-burgundy transition-colors">
+                  {String(index + 1).padStart(2, '0')}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="bg-meridian-burgundy text-white p-12 rounded-lg mb-16">
+        <h2 class="text-3xl font-bold mb-6">Our Approach Isn't For Everyone</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-white">It's For You If:</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <span class="text-2xl mr-3">✓</span>
+                <span>You believe real change requires courage, not just consensus</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-2xl mr-3">✓</span>
+                <span>You're ready to question everything, including your own assumptions</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-2xl mr-3">✓</span>
+                <span>You want partners who will tell you the truth, not what you want to hear</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-2xl mr-3">✓</span>
+                <span>You measure success by impact, not PowerPoints</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-white">It's Not For You If:</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <span class="text-2xl mr-3">✗</span>
+                <span>You want a 200-page strategy deck that no one will read</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-2xl mr-3">✗</span>
+                <span>You're looking for someone to validate decisions you've already made</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-2xl mr-3">✗</span>
+                <span>You believe transformation can happen without discomfort</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-2xl mr-3">✗</span>
+                <span>You want consultants who leave when things get messy</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mb-16">
+        <h2 class="text-4xl font-bold mb-8">How We Work</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="text-5xl font-bold text-meridian-burgundy mb-4">01</div>
+            <h3 class="text-xl font-bold mb-2">Diagnose Fearlessly</h3>
+            <p class="text-meridian-steel">
+              We start with radical honesty. No sugar-coating, no politics—just the unvarnished truth about where you are and what's possible.
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="text-5xl font-bold text-meridian-burgundy mb-4">02</div>
+            <h3 class="text-xl font-bold mb-2">Design Together</h3>
+            <p class="text-meridian-steel">
+              Your future isn't something we create for you—it's something we build with you. Co-creation beats consultation every time.
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="text-5xl font-bold text-meridian-burgundy mb-4">03</div>
+            <h3 class="text-xl font-bold mb-2">Deliver Relentlessly</h3>
+            <p class="text-meridian-steel">
+              Ideas without execution are just expensive conversations. We stay until the work is real, measurable, and sustainable.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-meridian-light-gray p-12 rounded-lg text-center">
+        <h2 class="text-4xl font-bold mb-6">
+          Ready to Write Your Transformation Story?
+        </h2>
+        <p class="text-xl text-meridian-steel mb-8 max-w-3xl mx-auto">
+          The organizations that will thrive tomorrow are being built today. 
+          The question is: will yours be one of them?
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="btn bg-meridian-burgundy text-white hover:bg-meridian-dark text-lg px-8 py-3">
+            Let's Talk
+          </a>
+          <a href="/about" class="btn border-2 border-meridian-dark text-meridian-dark hover:bg-meridian-dark hover:text-white text-lg px-8 py-3">
+            Learn More About Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

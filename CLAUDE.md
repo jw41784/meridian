@@ -237,4 +237,7 @@ npm run update
 **Last Updated**: January 25, 2025
 **Next Review**: February 25, 2025
 
+**Development Techniques**
+- Use puppeteer to check work
+
 Remember: The goal is to create a best-in-class blog platform that serves as both a content hub and a technical showcase for Project Meridian.

@@ -4,47 +4,92 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout 
   title="About" 
-  description="Learn more about Project Meridian Blog"
+  description="We believe the future isn't something that happens to us—it's something we create together."
 >
-  <section class="container py-12">
+  <section class="container py-16">
     <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl font-bold mb-8">About Project Meridian</h1>
+      <h1 class="text-5xl font-bold mb-12 gradient-meridian bg-clip-text text-transparent">
+        The Work That Matters
+      </h1>
       
-      <div class="prose prose-lg">
-        <p class="lead">
-          Welcome to Project Meridian Blog, a platform dedicated to sharing insights, 
-          updates, and innovative ideas that shape our future.
+      <div class="prose prose-lg prose-headings:text-meridian-burgundy max-w-none">
+        <p class="text-2xl font-light leading-relaxed text-meridian-steel mb-8">
+          The world doesn't need another think tank. It needs architects of possibility—
+          people brave enough to imagine what could be and skilled enough to build it.
         </p>
         
-        <h2>Our Mission</h2>
-        <p>
-          At Project Meridian, we believe in the power of knowledge sharing and 
-          collaborative innovation. Our blog serves as a hub for thought leadership, 
-          technical insights, and forward-thinking perspectives.
+        <div class="bg-meridian-light-gray p-8 rounded-lg my-12">
+          <p class="text-xl font-medium text-meridian-dark mb-0">
+            "Progress happens at the intersection of the inevitable and the impossible. 
+            Our job is to expand what we believe is possible."
+          </p>
+        </div>
+        
+        <h2 class="text-3xl font-bold mt-12 mb-6">We Are Project Meridian</h2>
+        <p class="text-lg">
+          We exist at the confluence of strategy and transformation. Not consultants who 
+          diagnose from a distance, but partners who roll up our sleeves and build alongside you.
+        </p>
+        <p class="text-lg">
+          Our work spans the spectrum of human ambition: from reimagining organizations 
+          to redesigning systems, from challenging assumptions to creating new realities.
         </p>
         
-        <h2>What We Cover</h2>
-        <ul>
-          <li>Technology trends and innovations</li>
-          <li>Industry insights and analysis</li>
-          <li>Best practices and methodologies</li>
-          <li>Case studies and success stories</li>
-          <li>Future-focused perspectives</li>
-        </ul>
+        <h2 class="text-3xl font-bold mt-12 mb-6">Our Operating System</h2>
+        <div class="space-y-6">
+          <div class="border-l-4 border-meridian-burgundy pl-6">
+            <h3 class="text-xl font-bold mb-2">Start With Humans</h3>
+            <p>Technology is just a tool. Organizations are just structures. 
+            Real change happens when people decide to show up differently.</p>
+          </div>
+          
+          <div class="border-l-4 border-meridian-burgundy pl-6">
+            <h3 class="text-xl font-bold mb-2">Question Everything</h3>
+            <p>The most dangerous phrase in any language is "we've always done it this way." 
+            Progress demands that we challenge what is to create what could be.</p>
+          </div>
+          
+          <div class="border-l-4 border-meridian-burgundy pl-6">
+            <h3 class="text-xl font-bold mb-2">Build in Public</h3>
+            <p>Transformation isn't a spectator sport. We share our work, our thinking, 
+            and yes, our failures—because collective intelligence beats individual brilliance every time.</p>
+          </div>
+        </div>
         
-        <h2>Contributing</h2>
-        <p>
-          We welcome contributions from thought leaders, innovators, and experts 
-          in various fields. If you're interested in sharing your insights with 
-          our community, please reach out to learn more about our contribution 
-          guidelines.
+        <h2 class="text-3xl font-bold mt-12 mb-6">The Invitation</h2>
+        <p class="text-lg">
+          This isn't just our blog. It's a laboratory for ideas that refuse to behave. 
+          A gathering place for rebels with a cause. A workshop where the future takes shape.
+        </p>
+        <p class="text-lg">
+          Whether you're here to challenge your thinking, find kindred spirits, or discover 
+          what's next—welcome. The best conversations happen when diverse minds collide.
         </p>
         
-        <h2>Stay Connected</h2>
-        <p>
-          Subscribe to our <a href="/rss.xml">RSS feed</a> to stay updated with 
-          the latest articles and insights from Project Meridian.
-        </p>
+        <div class="bg-meridian-burgundy text-white p-8 rounded-lg my-12">
+          <h3 class="text-2xl font-bold mb-4 text-white">Join the Expedition</h3>
+          <p class="text-lg mb-4">
+            Great work rarely happens in isolation. If you're building something that matters, 
+            we want to hear about it.
+          </p>
+          <div class="flex gap-4">
+            <a href="/contact" class="btn bg-white text-meridian-burgundy hover:bg-meridian-light-gray">
+              Start a Conversation
+            </a>
+            <a href="/rss.xml" class="btn border-2 border-white text-white hover:bg-white hover:text-meridian-burgundy">
+              Subscribe to Updates
+            </a>
+          </div>
+        </div>
+        
+        <div class="mt-12 text-center">
+          <p class="text-xl font-light text-meridian-steel">
+            Ready to stop predicting the future and start inventing it?
+          </p>
+          <p class="text-2xl font-bold mt-4 text-meridian-burgundy">
+            Let's begin.
+          </p>
+        </div>
       </div>
     </div>
   </section>
