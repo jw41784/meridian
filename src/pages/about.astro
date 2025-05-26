@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getUrl } from '../utils/links';
 ---
 
 <BaseLayout 
@@ -73,10 +74,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             If that's you (spoiler: it probably is), we'd love to chat.
           </p>
           <div class="flex gap-4">
-            <a href={`${import.meta.env.BASE_URL}contact`} class="btn bg-white text-meridian-burgundy hover:bg-meridian-light-gray">
+            <a href={getUrl('contact')} class="btn bg-white text-meridian-burgundy hover:bg-meridian-light-gray">
               Drop Us a Line
             </a>
-            <a href={`${import.meta.env.BASE_URL}rss.xml`} class="btn border-2 border-white text-white hover:bg-white hover:text-meridian-burgundy">
+            <a href={getUrl('rss.xml')} class="btn border-2 border-white text-white hover:bg-white hover:text-meridian-burgundy">
               Stay in the Loop
             </a>
           </div>

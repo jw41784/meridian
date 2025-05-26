@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
+import { getUrl } from '../utils/links';
 
 const allArticles = await getCollection('articles', ({ data }) => {
   return data.draft !== true;
@@ -34,10 +35,10 @@ const recentArticles = allArticles
         </p>
         
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href={`${import.meta.env.BASE_URL}articles`} class="btn bg-meridian-burgundy text-white hover:bg-meridian-dark text-lg px-8 py-3">
+          <a href={getUrl('articles')} class="btn bg-meridian-burgundy text-white hover:bg-meridian-dark text-lg px-8 py-3">
             Explore Our Thinking
           </a>
-          <a href={`${import.meta.env.BASE_URL}work`} class="btn bg-transparent border-2 border-meridian-burgundy text-meridian-burgundy hover:bg-meridian-burgundy hover:text-white text-lg px-8 py-3">
+          <a href={getUrl('work')} class="btn bg-transparent border-2 border-meridian-burgundy text-meridian-burgundy hover:bg-meridian-burgundy hover:text-white text-lg px-8 py-3">
             See Our Work
           </a>
         </div>
@@ -55,7 +56,7 @@ const recentArticles = allArticles
           <h2 class="text-4xl md:text-5xl font-bold">
             Ideas Worth <span class="text-meridian-burgundy">Sharing</span>
           </h2>
-          <a href={`${import.meta.env.BASE_URL}articles`} class="btn bg-transparent border border-meridian-burgundy text-meridian-burgundy hover:bg-meridian-burgundy hover:text-white hidden sm:inline-flex">
+          <a href={getUrl('articles')} class="btn bg-transparent border border-meridian-burgundy text-meridian-burgundy hover:bg-meridian-burgundy hover:text-white hidden sm:inline-flex">
             All Articles →
           </a>
         </div>
@@ -80,7 +81,7 @@ const recentArticles = allArticles
       </div>
       
       <div class="mt-8 sm:hidden">
-        <a href={`${import.meta.env.BASE_URL}articles`} class="btn w-full text-center bg-transparent border border-meridian-burgundy text-meridian-burgundy hover:bg-meridian-burgundy hover:text-white">
+        <a href={getUrl('articles')} class="btn w-full text-center bg-transparent border border-meridian-burgundy text-meridian-burgundy hover:bg-meridian-burgundy hover:text-white">
           View All Articles →
         </a>
       </div>
@@ -97,10 +98,10 @@ const recentArticles = allArticles
           The best ideas happen when talented people work together. Let's see what's possible.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href={`${import.meta.env.BASE_URL}contact`} class="btn bg-meridian-burgundy text-white hover:bg-meridian-dark text-lg px-8 py-3">
+          <a href={getUrl('contact')} class="btn bg-meridian-burgundy text-white hover:bg-meridian-dark text-lg px-8 py-3">
             Say Hello
           </a>
-          <a href={`${import.meta.env.BASE_URL}about`} class="btn bg-transparent border-2 border-meridian-dark text-meridian-dark hover:bg-meridian-dark hover:text-white text-lg px-8 py-3">
+          <a href={getUrl('about')} class="btn bg-transparent border-2 border-meridian-dark text-meridian-dark hover:bg-meridian-dark hover:text-white text-lg px-8 py-3">
             Get to Know Us
           </a>
         </div>
