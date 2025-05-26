@@ -21,7 +21,10 @@
       "Bash(find:*)",
       "Bash(rg:*)",
       "Bash(/opt/homebrew/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg 'href=\"\"/' src/ --type-add 'astro:*.astro' --type astro)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(cp:*)",
+      "Bash(diff:*)",
+      "Bash(rm:*)"
     ],
     "deny": []
   }
