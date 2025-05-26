@@ -21,14 +21,14 @@ const tagCounts = tags.map((tag) => {
     <div class="max-w-6xl mx-auto">
       <div class="mb-12">
         <p class="text-meridian-burgundy font-bold uppercase tracking-wider mb-4">
-          Curated Obsessions
+          Browse by Topic
         </p>
         <h1 class="text-5xl md:text-6xl font-bold mb-6">
-          Ideas Worth <span class="gradient-meridian bg-clip-text text-transparent">Following</span>
+          Find Your <span class="gradient-meridian bg-clip-text text-transparent">Rabbit Hole</span>
         </h1>
         <p class="text-xl text-meridian-steel max-w-3xl">
-          Great thinking rarely fits in boxes. But sometimes boxes help us find 
-          what we're looking for. Dive into any topic that catches your eye.
+          We organize our thoughts into these handy categories. Fair warning: 
+          clicking one might lead to an hour of "just one more article" syndrome. 🐰
         </p>
       </div>
       
@@ -65,17 +65,17 @@ const tagCounts = tags.map((tag) => {
       )}
       
       <div class="bg-meridian-burgundy text-white p-8 rounded-lg">
-        <h2 class="text-2xl font-bold mb-4">Can't Find What You're Looking For?</h2>
+        <h2 class="text-2xl font-bold mb-4">Looking for Something Specific?</h2>
         <p class="text-lg mb-6">
-          Sometimes the best ideas live between categories. Try our search to find 
-          exactly what you need, or browse all articles to discover something unexpected.
+          No worries! Sometimes the best discoveries happen when you're looking for 
+          something else entirely. Try browsing all articles or hit us up with topic ideas.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <a href={`${import.meta.env.BASE_URL}articles`} class="btn bg-white text-meridian-burgundy hover:bg-meridian-light-gray">
-            Browse All Articles
+            See Everything
           </a>
           <a href={`${import.meta.env.BASE_URL}contact`} class="btn border-2 border-white text-white hover:bg-white hover:text-meridian-burgundy">
-            Suggest a Topic
+            Request a Topic 💡
           </a>
         </div>
       </div>
