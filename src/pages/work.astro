@@ -172,10 +172,10 @@ const projects = [
           The question is: will yours be one of them?
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contact" class="btn bg-meridian-burgundy text-white hover:bg-meridian-dark text-lg px-8 py-3">
+          <a href={`${import.meta.env.BASE_URL}contact`} class="btn bg-meridian-burgundy text-white hover:bg-meridian-dark text-lg px-8 py-3">
             Let's Talk
           </a>
-          <a href="/about" class="btn border-2 border-meridian-dark text-meridian-dark hover:bg-meridian-dark hover:text-white text-lg px-8 py-3">
+          <a href={`${import.meta.env.BASE_URL}about`} class="btn border-2 border-meridian-dark text-meridian-dark hover:bg-meridian-dark hover:text-white text-lg px-8 py-3">
             Learn More About Us
           </a>
         </div>

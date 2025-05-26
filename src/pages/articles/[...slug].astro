@@ -41,7 +41,7 @@ const formattedDate = new Date(article.data.publishDate).toLocaleDateString('en-
       
       <div class="flex flex-wrap gap-2 justify-center">
         {article.data.tags.map((tag) => (
-          <a href={`/tags/${tag}`} class="tag">
+          <a href={`${import.meta.env.BASE_URL}tags/${tag}`} class="tag">
             {tag}
           </a>
         ))}

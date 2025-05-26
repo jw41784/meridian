@@ -32,7 +32,7 @@ export default function Search() {
     // Load search data and build index
     const loadSearchData = async () => {
       try {
-        const response = await fetch('/meridian/search.json');
+        const response = await fetch(`${import.meta.env.BASE_URL}search.json`);
         const documents: SearchDocument[] = await response.json();
         documentsRef.current = documents;
 
@@ -151,7 +151,7 @@ export default function Search() {
               {results.map((result) => (
                 <li key={result.slug} className="border-b border-meridian-light-gray last:border-0">
                   <a
-                    href={`/meridian/articles/${result.slug}`}
+                    href={`${import.meta.env.BASE_URL}articles/${result.slug}`}
                     className="block p-4 hover:bg-meridian-light-gray transition-colors"
                     onClick={() => setShowResults(false)}
                   >
