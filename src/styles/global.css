@@ -77,3 +77,25 @@ details[open] summary svg {
 .toc a {
   word-break: break-word;
 }
+
+/* Custom scrollbar for TOC */
+.toc > div {
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.gray.300') transparent;
+}
+
+.toc > div::-webkit-scrollbar {
+  width: 6px;
+}
+
+.toc > div::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toc > div::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+.toc > div::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
