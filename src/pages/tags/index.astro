@@ -21,13 +21,13 @@ const tagCounts = tags.map((tag) => {
   <section class="container py-16">
     <div class="max-w-6xl mx-auto">
       <div class="mb-12">
-        <p class="text-meridian-burgundy font-bold uppercase tracking-wider mb-4">
+        <p class="text-meridian-burgundy dark:text-meridian-steel font-bold uppercase tracking-wider mb-4">
           Browse by Topic
         </p>
-        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 dark:text-gray-100">
           Find Your <span class="gradient-meridian bg-clip-text text-transparent">Rabbit Hole</span>
         </h1>
-        <p class="text-xl text-meridian-steel max-w-3xl">
+        <p class="text-xl text-meridian-steel dark:text-gray-300 max-w-3xl">
           We organize our thoughts into these handy categories. Fair warning: 
           clicking one might lead to an hour of "just one more article" syndrome. 🐰
         </p>
@@ -40,14 +40,14 @@ const tagCounts = tags.map((tag) => {
               href={getUrl(`tags/${tag}`)}
               class="group relative overflow-hidden rounded-lg border-2 border-transparent hover:border-meridian-burgundy transition-all duration-300"
             >
-              <div class="p-6 bg-white hover:bg-meridian-light-gray transition-colors">
-                <h2 class="text-2xl font-bold mb-2 capitalize group-hover:text-meridian-burgundy transition-colors">
+              <div class="p-6 bg-white dark:bg-gray-800 hover:bg-meridian-light-gray dark:hover:bg-gray-700 transition-colors">
+                <h2 class="text-2xl font-bold mb-2 capitalize group-hover:text-meridian-burgundy dark:text-gray-100 dark:group-hover:text-meridian-steel transition-colors">
                   {tag}
                 </h2>
-                <p class="text-meridian-steel">
+                <p class="text-meridian-steel dark:text-gray-400">
                   {count} {count === 1 ? 'perspective' : 'perspectives'}
                 </p>
-                <div class="absolute bottom-2 right-2 text-6xl font-bold text-meridian-light-gray/50 group-hover:text-meridian-burgundy/20 transition-colors">
+                <div class="absolute bottom-2 right-2 text-6xl font-bold text-meridian-light-gray/50 dark:text-gray-700/50 group-hover:text-meridian-burgundy/20 dark:group-hover:text-meridian-steel/20 transition-colors">
                   {count}
                 </div>
               </div>
@@ -55,11 +55,11 @@ const tagCounts = tags.map((tag) => {
           ))}
         </div>
       ) : (
-        <div class="text-center py-16 bg-meridian-light-gray rounded-lg">
-          <p class="text-xl text-meridian-steel">
+        <div class="text-center py-16 bg-meridian-light-gray dark:bg-gray-800 rounded-lg">
+          <p class="text-xl text-meridian-steel dark:text-gray-400">
             Tags will appear here as we publish more content.
           </p>
-          <p class="text-lg text-meridian-steel mt-2">
+          <p class="text-lg text-meridian-steel dark:text-gray-400 mt-2">
             Check back soon for organized brilliance.
           </p>
         </div>
