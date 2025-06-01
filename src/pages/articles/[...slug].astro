@@ -64,20 +64,17 @@ const showTOC = readingTime.minutes > 5;
       />
     )}
     
-    <div class="relative">
+    {/* Main content area with TOC */}
+    <div class="max-w-7xl mx-auto">
       {showTOC && (
         <>
-          {/* Desktop TOC - sticky sidebar */}
-          <aside class="hidden xl:block absolute -left-64 top-0 w-56">
-            <div class="sticky top-24 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-              <TableOfContents client:idle />
-            </div>
-          </aside>
-          
-          {/* Mobile TOC - collapsible at top */}
-          <details class="xl:hidden mb-8 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-            <summary class="cursor-pointer font-semibold text-meridian-burgundy dark:text-meridian-steel">
-              Table of Contents
+          {/* Mobile/Tablet TOC - collapsible at top */}
+          <details class="lg:hidden mb-8 mx-auto max-w-4xl p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+            <summary class="cursor-pointer font-semibold text-meridian-burgundy dark:text-meridian-steel flex items-center justify-between">
+              <span>Table of Contents</span>
+              <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
             </summary>
             <div class="mt-4">
               <TableOfContents client:load />
@@ -86,8 +83,22 @@ const showTOC = readingTime.minutes > 5;
         </>
       )}
       
-      <div class="prose prose-lg mx-auto max-w-4xl prose-gray dark:prose-invert">
-        <Content />
+      <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+        {/* Desktop TOC - sticky sidebar */}
+        {showTOC && (
+          <aside class="hidden lg:block lg:col-span-3">
+            <div class="sticky top-24 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <TableOfContents client:idle />
+            </div>
+          </aside>
+        )}
+        
+        {/* Article content */}
+        <div class={showTOC ? "lg:col-span-9" : "lg:col-span-12"}>
+          <div class="prose prose-lg mx-auto max-w-none prose-gray dark:prose-invert">
+            <Content />
+          </div>
+        </div>
       </div>
     </div>
   </article>

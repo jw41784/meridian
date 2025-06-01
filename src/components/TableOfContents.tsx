@@ -84,23 +84,24 @@ export default function TableOfContents({ minReadingTime = 5 }: TableOfContentsP
 
   return (
     <nav className="toc" aria-label="Table of contents">
-      <h2 className="text-lg font-bold mb-4 text-meridian-burgundy dark:text-meridian-steel">
+      <h2 className="text-base lg:text-lg font-bold mb-3 lg:mb-4 text-meridian-burgundy dark:text-meridian-steel">
         On this page
       </h2>
-      <ul className="space-y-2">
+      <ul className="space-y-1 lg:space-y-2">
         {headings.map((heading) => (
           <li
             key={heading.id}
-            style={{ paddingLeft: `${(heading.level - 2) * 1}rem` }}
+            className="leading-relaxed"
+            style={{ paddingLeft: `${(heading.level - 2) * 0.75}rem` }}
           >
             <a
               href={`#${heading.id}`}
               onClick={(e) => handleClick(e, heading.id)}
               className={`
-                block py-1 text-sm transition-colors hover:text-meridian-burgundy dark:hover:text-meridian-steel
+                block py-1 text-xs lg:text-sm transition-colors hover:text-meridian-burgundy dark:hover:text-meridian-steel
                 ${activeId === heading.id 
-                  ? 'text-meridian-burgundy dark:text-meridian-steel font-medium' 
-                  : 'text-gray-600 dark:text-gray-400'
+                  ? 'text-meridian-burgundy dark:text-meridian-steel font-medium border-l-2 border-meridian-burgundy dark:border-meridian-steel pl-2 -ml-2' 
+                  : 'text-gray-600 dark:text-gray-400 hover:pl-2 hover:-ml-2'
                 }
               `}
             >

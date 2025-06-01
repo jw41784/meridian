@@ -63,3 +63,17 @@
     @apply bg-gradient-to-r from-meridian-burgundy to-meridian-steel;
   }
 }
+
+/* Details/Summary animation for TOC */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary svg {
+  transform: rotate(180deg);
+}
+
+/* Ensure TOC links don't overflow on mobile */
+.toc a {
+  word-break: break-word;
+}
