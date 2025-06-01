@@ -1,5 +1,6 @@
 ---
 import Search from './Search';
+import ThemeToggle from './ThemeToggle';
 import { getUrl } from '../utils/links';
 
 const currentPath = Astro.url.pathname;
@@ -18,7 +19,7 @@ function isActive(itemHref: string): boolean {
 }
 ---
 
-<header class="bg-white shadow-sm border-b border-meridian-light-gray">
+<header class="bg-white dark:bg-gray-800 shadow-sm border-b border-meridian-light-gray dark:border-gray-700 transition-colors">
   <nav class="container py-4">
     <div class="flex items-center justify-between gap-4">
       <a href={getUrl()} class="flex items-center gap-2 text-2xl font-bold gradient-meridian bg-clip-text text-transparent whitespace-nowrap">
@@ -47,6 +48,8 @@ function isActive(itemHref: string): boolean {
         <div class="flex-1 max-w-xs">
           <Search client:load />
         </div>
+        
+        <ThemeToggle client:load />
       </div>
     </div>
   </nav>

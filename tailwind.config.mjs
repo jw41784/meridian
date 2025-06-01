@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
@@ -42,6 +43,46 @@ export default {
             },
             'blockquote p:first-of-type::before': false,
             'blockquote p:last-of-type::after': false,
+          },
+        },
+        dark: {
+          css: {
+            color: theme('colors.gray.300'),
+            a: {
+              color: theme('colors.meridian.steel'),
+              '&:hover': {
+                color: theme('colors.meridian.light-gray'),
+              },
+            },
+            h1: {
+              color: theme('colors.gray.100'),
+            },
+            h2: {
+              color: theme('colors.gray.100'),
+            },
+            h3: {
+              color: theme('colors.gray.100'),
+            },
+            h4: {
+              color: theme('colors.gray.100'),
+            },
+            'strong': {
+              color: theme('colors.gray.100'),
+            },
+            code: {
+              color: theme('colors.meridian.steel'),
+            },
+            'blockquote': {
+              color: theme('colors.gray.300'),
+              borderLeftColor: theme('colors.gray.600'),
+            },
+            'thead': {
+              color: theme('colors.gray.100'),
+              borderBottomColor: theme('colors.gray.600'),
+            },
+            'tbody tr': {
+              borderBottomColor: theme('colors.gray.700'),
+            },
           },
         },
       }),

@@ -44,8 +44,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="apple-touch-icon" href={`${getUrl('favicon.svg')}?v=4`} />
     <meta name="msapplication-TileImage" content={`${getUrl('favicon.svg')}?v=4`} />
     <title>{title} | Project Meridian</title>
+    
+    <!-- Theme initialization script -->
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+      
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
     <Nav />
     <main class="flex-grow">
       <slot />

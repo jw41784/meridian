@@ -3,12 +3,12 @@ import { getUrl } from '../utils/links';
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-meridian-light-gray mt-auto">
+<footer class="bg-meridian-light-gray dark:bg-gray-800 mt-auto transition-colors">
   <div class="container py-8">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
         <h3 class="font-semibold mb-2">Project Meridian</h3>
-        <p class="text-sm text-meridian-steel">
+        <p class="text-sm text-meridian-steel dark:text-gray-400">
           Insights and updates from the forefront of innovation.
         </p>
       </div>
@@ -16,28 +16,28 @@ const year = new Date().getFullYear();
       <div>
         <h3 class="font-semibold mb-2">Quick Links</h3>
         <ul class="space-y-1 text-sm">
-          <li><a href={getUrl('articles')} class="text-meridian-steel hover:text-meridian-burgundy">Articles</a></li>
-          <li><a href={getUrl('about')} class="text-meridian-steel hover:text-meridian-burgundy">About</a></li>
-          <li><a href={getUrl('tags')} class="text-meridian-steel hover:text-meridian-burgundy">Browse Tags</a></li>
-          <li><a href={getUrl('rss.xml')} class="text-meridian-steel hover:text-meridian-burgundy">RSS Feed</a></li>
+          <li><a href={getUrl('articles')} class="text-meridian-steel dark:text-gray-400 hover:text-meridian-burgundy dark:hover:text-meridian-steel">Articles</a></li>
+          <li><a href={getUrl('about')} class="text-meridian-steel dark:text-gray-400 hover:text-meridian-burgundy dark:hover:text-meridian-steel">About</a></li>
+          <li><a href={getUrl('tags')} class="text-meridian-steel dark:text-gray-400 hover:text-meridian-burgundy dark:hover:text-meridian-steel">Browse Tags</a></li>
+          <li><a href={getUrl('rss.xml')} class="text-meridian-steel dark:text-gray-400 hover:text-meridian-burgundy dark:hover:text-meridian-steel">RSS Feed</a></li>
         </ul>
       </div>
       
       <div>
         <h3 class="font-semibold mb-2">Connect</h3>
-        <p class="text-sm text-meridian-steel mb-2">
+        <p class="text-sm text-meridian-steel dark:text-gray-400 mb-2">
           Questions? Ideas? Let's talk.
         </p>
-        <a href="mailto:info@eudexio.com" class="text-sm text-meridian-burgundy hover:text-meridian-dark">
+        <a href="mailto:info@eudexio.com" class="text-sm text-meridian-burgundy dark:text-meridian-steel hover:text-meridian-dark dark:hover:text-meridian-light-gray">
           info@eudexio.com
         </a>
       </div>
     </div>
     
-    <div class="mt-8 pt-8 border-t border-meridian-steel/20">
+    <div class="mt-8 pt-8 border-t border-meridian-steel/20 dark:border-gray-700">
       <div class="flex flex-col items-center gap-4">
         <img src={getUrl('meridianlogo.svg')} alt="Project Meridian Logo" class="h-12 w-12" />
-        <p class="text-sm text-meridian-steel">
+        <p class="text-sm text-meridian-steel dark:text-gray-400">
           &copy; {year} Project Meridian. All rights reserved.
         </p>
       </div>

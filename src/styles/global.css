@@ -16,15 +16,15 @@
   }
 
   body {
-    @apply antialiased bg-white text-meridian-text;
+    @apply antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold text-meridian-dark;
+    @apply font-semibold text-meridian-dark dark:text-gray-100;
   }
 
   a {
-    @apply text-meridian-burgundy hover:text-meridian-steel transition-colors;
+    @apply text-meridian-burgundy hover:text-meridian-steel dark:text-meridian-steel dark:hover:text-meridian-light-gray transition-colors;
   }
 }
 
@@ -46,11 +46,11 @@
   }
 
   .card {
-    @apply bg-white border border-meridian-light-gray rounded-lg shadow-sm hover:shadow-md transition-shadow;
+    @apply bg-white dark:bg-gray-800 border border-meridian-light-gray dark:border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-shadow;
   }
 
   .tag {
-    @apply inline-block px-2 py-1 text-xs font-medium rounded-md bg-meridian-light-gray text-meridian-steel hover:bg-meridian-steel hover:text-white transition-colors;
+    @apply inline-block px-2 py-1 text-xs font-medium rounded-md bg-meridian-light-gray dark:bg-gray-700 text-meridian-steel dark:text-gray-300 hover:bg-meridian-steel hover:text-white dark:hover:bg-meridian-steel dark:hover:text-white transition-colors;
   }
 }
 

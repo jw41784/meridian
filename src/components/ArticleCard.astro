@@ -33,12 +33,12 @@ const formattedDate = new Date(publishDate).toLocaleDateString('en-US', {
   )}
   
   <h2 class="text-xl font-semibold mb-2">
-    <a href={getUrl(`articles/${slug}`)} class="hover:text-meridian-burgundy transition-colors">
+    <a href={getUrl(`articles/${slug}`)} class="hover:text-meridian-burgundy dark:hover:text-meridian-steel transition-colors">
       {title}
     </a>
   </h2>
   
-  <p class="text-meridian-steel mb-4 flex-grow">
+  <p class="text-meridian-steel dark:text-gray-400 mb-4 flex-grow">
     {description}
   </p>
   
@@ -50,7 +50,7 @@ const formattedDate = new Date(publishDate).toLocaleDateString('en-US', {
     ))}
   </div>
   
-  <div class="text-sm text-meridian-steel">
+  <div class="text-sm text-meridian-steel dark:text-gray-400">
     <span>{author}</span> • <time datetime={publishDate.toISOString()}>{formattedDate}</time>
   </div>
 </article>
