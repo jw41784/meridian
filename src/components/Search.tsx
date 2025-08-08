@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import lunr from 'lunr';
+import { useState, useEffect, useRef } from "react";
+import lunr from "lunr";
 
 interface SearchResult {
   slug: string;
@@ -20,7 +20,7 @@ interface SearchDocument {
 }
 
 export default function Search() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showResults, setShowResults] = useState(false);
@@ -38,22 +38,22 @@ export default function Search() {
 
         // Build Lunr index
         indexRef.current = lunr(function () {
-          this.ref('slug');
-          this.field('title', { boost: 10 });
-          this.field('description', { boost: 5 });
-          this.field('content');
-          this.field('tags', { boost: 3 });
-          this.field('author');
+          this.ref("slug");
+          this.field("title", { boost: 10 });
+          this.field("description", { boost: 5 });
+          this.field("content");
+          this.field("tags", { boost: 3 });
+          this.field("author");
 
           documents.forEach((doc) => {
             this.add({
               ...doc,
-              tags: doc.tags.join(' '),
+              tags: doc.tags.join(" "),
             });
           });
         });
       } catch (error) {
-        console.error('Failed to load search index:', error);
+        console.error("Failed to load search index:", error);
       }
     };
 
@@ -63,18 +63,21 @@ export default function Search() {
   useEffect(() => {
     // Close results when clicking outside
     const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
         setShowResults(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const handleSearch = (searchQuery: string) => {
     setQuery(searchQuery);
-    
+
     if (!searchQuery.trim() || !indexRef.current) {
       setResults([]);
       setShowResults(false);
@@ -82,24 +85,29 @@ export default function Search() {
     }
 
     setIsLoading(true);
-    
+
     try {
       const searchResults = indexRef.current.search(searchQuery);
-      const mappedResults = searchResults.slice(0, 5).map((result) => {
-        const doc = documentsRef.current.find((d) => d.slug === result.ref);
-        return doc ? {
-          slug: doc.slug,
-          title: doc.title,
-          description: doc.description,
-          author: doc.author,
-          publishDate: doc.publishDate,
-        } : null;
-      }).filter((r): r is SearchResult => r !== null);
+      const mappedResults = searchResults
+        .slice(0, 5)
+        .map((result) => {
+          const doc = documentsRef.current.find((d) => d.slug === result.ref);
+          return doc
+            ? {
+                slug: doc.slug,
+                title: doc.title,
+                description: doc.description,
+                author: doc.author,
+                publishDate: doc.publishDate,
+              }
+            : null;
+        })
+        .filter((r): r is SearchResult => r !== null);
 
       setResults(mappedResults);
       setShowResults(true);
     } catch (error) {
-      console.error('Search error:', error);
+      console.error("Search error:", error);
       setResults([]);
     } finally {
       setIsLoading(false);
@@ -107,10 +115,10 @@ export default function Search() {
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     });
   };
 
@@ -123,10 +131,10 @@ export default function Search() {
           value={query}
           onChange={(e) => handleSearch(e.target.value)}
           onFocus={() => query && setShowResults(true)}
-          className="w-full px-4 py-2 pr-10 border border-meridian-light-gray rounded-md focus:outline-none focus:ring-2 focus:ring-meridian-burgundy focus:border-transparent"
+          className="w-full rounded-md border border-meridian-light-gray px-4 py-2 pr-10 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-meridian-burgundy"
         />
         <svg
-          className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-meridian-steel"
+          className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-meridian-steel"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -141,7 +149,7 @@ export default function Search() {
       </div>
 
       {showResults && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-meridian-light-gray rounded-md shadow-lg max-h-96 overflow-y-auto z-50">
+        <div className="absolute left-0 right-0 top-full z-50 mt-2 max-h-96 overflow-y-auto rounded-md border border-meridian-light-gray bg-white shadow-lg">
           {isLoading ? (
             <div className="p-4 text-center text-meridian-steel">
               Searching...
@@ -149,16 +157,19 @@ export default function Search() {
           ) : results.length > 0 ? (
             <ul>
               {results.map((result) => (
-                <li key={result.slug} className="border-b border-meridian-light-gray last:border-0">
+                <li
+                  key={result.slug}
+                  className="border-b border-meridian-light-gray last:border-0"
+                >
                   <a
                     href={`${import.meta.env.BASE_URL}articles/${result.slug}`}
-                    className="block p-4 hover:bg-meridian-light-gray transition-colors"
+                    className="block p-4 transition-colors hover:bg-meridian-light-gray"
                     onClick={() => setShowResults(false)}
                   >
-                    <h3 className="font-semibold text-meridian-dark mb-1">
+                    <h3 className="mb-1 font-semibold text-meridian-dark">
                       {result.title}
                     </h3>
-                    <p className="text-sm text-meridian-steel mb-1 line-clamp-2">
+                    <p className="mb-1 line-clamp-2 text-sm text-meridian-steel">
                       {result.description}
                     </p>
                     <div className="text-xs text-meridian-steel">

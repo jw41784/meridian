@@ -1,5 +1,5 @@
 ---
-import { getUrl } from '../utils/links';
+import { getUrl } from "../utils/links";
 
 export interface Props {
   title: string;
@@ -15,48 +15,69 @@ export interface Props {
   };
 }
 
-const { title, description, publishDate, author, tags, slug, readingTime, image } = Astro.props;
+const {
+  title,
+  description,
+  publishDate,
+  author,
+  tags,
+  slug,
+  readingTime,
+  image,
+} = Astro.props;
 
-const formattedDate = new Date(publishDate).toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
+const formattedDate = new Date(publishDate).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
 });
 ---
 
-<article class="card p-6 h-full flex flex-col">
-  {image && (
-    <img 
-      src={image.src} 
-      alt={image.alt} 
-      class="w-full h-48 object-cover rounded-md mb-4"
-    />
-  )}
-  
-  <h2 class="text-xl font-semibold mb-2">
-    <a href={getUrl(`articles/${slug}`)} class="hover:text-meridian-burgundy dark:hover:text-meridian-steel transition-colors">
+<article class="card flex h-full flex-col p-6">
+  {
+    image && (
+      <img
+        src={image.src}
+        alt={image.alt}
+        class="mb-4 h-48 w-full rounded-md object-cover"
+      />
+    )
+  }
+
+  <h2 class="mb-2 text-xl font-semibold">
+    <a
+      href={getUrl(`articles/${slug}`)}
+      class="transition-colors hover:text-meridian-burgundy dark:hover:text-meridian-steel"
+    >
       {title}
     </a>
   </h2>
-  
-  <p class="text-meridian-steel dark:text-gray-400 mb-4 flex-grow">
+
+  <p class="mb-4 flex-grow text-meridian-steel dark:text-gray-400">
     {description}
   </p>
-  
-  <div class="flex flex-wrap gap-2 mb-4">
-    {tags.map((tag) => (
-      <a href={getUrl(`tags/${tag}`)} class="tag">
-        {tag}
-      </a>
-    ))}
+
+  <div class="mb-4 flex flex-wrap gap-2">
+    {
+      tags.map((tag) => (
+        <a href={getUrl(`tags/${tag}`)} class="tag">
+          {tag}
+        </a>
+      ))
+    }
   </div>
-  
+
   <div class="text-sm text-meridian-steel dark:text-gray-400">
-    <span>{author}</span> • <time datetime={publishDate.toISOString()}>{formattedDate}</time>
-    {readingTime && (
-      <>
-        {' '}• <span>{readingTime}</span>
-      </>
-    )}
+    <span>{author}</span> • <time datetime={publishDate.toISOString()}
+      >{formattedDate}</time
+    >
+    {
+      readingTime && (
+        <>
+          {" "}
+          • <span>{readingTime}</span>
+        </>
+      )
+    }
   </div>
 </article>

@@ -1,14 +1,14 @@
 ---
-import Search from './Search';
-import ThemeToggle from './ThemeToggle';
-import { getUrl } from '../utils/links';
+import Search from "./Search";
+import ThemeToggle from "./ThemeToggle";
+import { getUrl } from "../utils/links";
 
 const currentPath = Astro.url.pathname;
 
 const navItems = [
-  { label: 'Home', href: getUrl() },
-  { label: 'Articles', href: getUrl('articles') },
-  { label: 'About', href: getUrl('about') },
+  { label: "Home", href: getUrl() },
+  { label: "Articles", href: getUrl("articles") },
+  { label: "About", href: getUrl("about") },
 ];
 
 function isActive(itemHref: string): boolean {
@@ -19,36 +19,47 @@ function isActive(itemHref: string): boolean {
 }
 ---
 
-<header class="bg-white dark:bg-gray-800 shadow-sm border-b border-meridian-light-gray dark:border-gray-700 transition-colors">
+<header
+  class="border-b border-meridian-light-gray bg-white shadow-sm transition-colors dark:border-gray-700 dark:bg-gray-800"
+>
   <nav class="container py-4">
     <div class="flex items-center justify-between gap-4">
-      <a href={getUrl()} class="flex items-center gap-2 text-2xl font-bold gradient-meridian bg-clip-text text-transparent whitespace-nowrap">
-        <img src={getUrl('meridianlogo.svg')} alt="Project Meridian Logo" class="h-8 w-8" />
+      <a
+        href={getUrl()}
+        class="gradient-meridian flex items-center gap-2 whitespace-nowrap bg-clip-text text-2xl font-bold text-transparent"
+      >
+        <img
+          src={getUrl("meridianlogo.svg")}
+          alt="Project Meridian Logo"
+          class="h-8 w-8"
+        />
         Project Meridian
       </a>
-      
-      <div class="flex items-center gap-6 flex-1 max-w-2xl">
+
+      <div class="flex max-w-2xl flex-1 items-center gap-6">
         <ul class="flex items-center space-x-6">
-          {navItems.map((item) => (
-            <li>
-              <a 
-                href={item.href}
-                class={`font-medium transition-colors ${
-                  isActive(item.href) 
-                    ? 'text-meridian-burgundy' 
-                    : 'text-meridian-steel hover:text-meridian-burgundy'
-                }`}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
+          {
+            navItems.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class={`font-medium transition-colors ${
+                    isActive(item.href)
+                      ? "text-meridian-burgundy"
+                      : "text-meridian-steel hover:text-meridian-burgundy"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
         </ul>
-        
-        <div class="flex-1 max-w-xs">
+
+        <div class="max-w-xs flex-1">
           <Search client:load />
         </div>
-        
+
         <ThemeToggle client:load />
       </div>
     </div>

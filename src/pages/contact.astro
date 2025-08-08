@@ -1,129 +1,159 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { getUrl } from '../utils/links';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getUrl } from "../utils/links";
 ---
 
-<BaseLayout 
-  title="Contact" 
+<BaseLayout
+  title="Contact"
   description="Great transformations start with a single conversation. Let's have ours."
 >
   <section class="container py-16">
-    <div class="max-w-5xl mx-auto">
+    <div class="mx-auto max-w-5xl">
       <div class="mb-16 text-center">
-        <p class="text-meridian-burgundy font-bold uppercase tracking-wider mb-4">
+        <p
+          class="mb-4 font-bold uppercase tracking-wider text-meridian-burgundy"
+        >
           Hey There! 👋
         </p>
-        <h1 class="text-5xl md:text-6xl font-bold mb-8">
-          Let's <span class="gradient-meridian bg-clip-text text-transparent">Talk</span>
+        <h1 class="mb-8 text-5xl font-bold md:text-6xl">
+          Let's <span class="gradient-meridian bg-clip-text text-transparent"
+            >Talk</span
+          >
         </h1>
-        <p class="text-2xl font-light text-meridian-steel max-w-3xl mx-auto">
-          Got questions? Ideas? Just want to say hi? We're all ears. 
-          Seriously, we love hearing from people who are excited about making things better.
+        <p class="mx-auto max-w-3xl text-2xl font-light text-meridian-steel">
+          Got questions? Ideas? Just want to say hi? We're all ears. Seriously,
+          we love hearing from people who are excited about making things
+          better.
         </p>
       </div>
-      
-      <div class="grid lg:grid-cols-2 gap-12 mb-16">
+
+      <div class="mb-16 grid gap-12 lg:grid-cols-2">
         <div>
-          <h2 class="text-3xl font-bold mb-8">Ways to Connect</h2>
-          
+          <h2 class="mb-8 text-3xl font-bold">Ways to Connect</h2>
+
           <div class="space-y-6">
             <div class="border-l-4 border-meridian-burgundy pl-6">
-              <h3 class="text-xl font-bold mb-2">Working Together</h3>
-              <p class="text-meridian-steel mb-2">
-                Have a project that needs fresh eyes? We'd love to hear about it and see how we can help.
+              <h3 class="mb-2 text-xl font-bold">Working Together</h3>
+              <p class="mb-2 text-meridian-steel">
+                Have a project that needs fresh eyes? We'd love to hear about it
+                and see how we can help.
               </p>
-              <a href="mailto:projects@projectmeridian.com" class="text-meridian-burgundy font-bold hover:underline">
+              <a
+                href="mailto:projects@projectmeridian.com"
+                class="font-bold text-meridian-burgundy hover:underline"
+              >
                 projects@projectmeridian.com
               </a>
             </div>
-            
+
             <div class="border-l-4 border-meridian-burgundy pl-6">
-              <h3 class="text-xl font-bold mb-2">Speaking & Sharing</h3>
-              <p class="text-meridian-steel mb-2">
-                Need someone to energize your next event? We love sharing what we've learned (and we promise to keep it fun).
+              <h3 class="mb-2 text-xl font-bold">Speaking & Sharing</h3>
+              <p class="mb-2 text-meridian-steel">
+                Need someone to energize your next event? We love sharing what
+                we've learned (and we promise to keep it fun).
               </p>
-              <a href="mailto:speaking@projectmeridian.com" class="text-meridian-burgundy font-bold hover:underline">
+              <a
+                href="mailto:speaking@projectmeridian.com"
+                class="font-bold text-meridian-burgundy hover:underline"
+              >
                 speaking@projectmeridian.com
               </a>
             </div>
-            
+
             <div class="border-l-4 border-meridian-burgundy pl-6">
-              <h3 class="text-xl font-bold mb-2">Team Ups & Collabs</h3>
-              <p class="text-meridian-steel mb-2">
-                Working on something cool? We're always down to connect with other folks doing interesting work.
+              <h3 class="mb-2 text-xl font-bold">Team Ups & Collabs</h3>
+              <p class="mb-2 text-meridian-steel">
+                Working on something cool? We're always down to connect with
+                other folks doing interesting work.
               </p>
-              <a href="mailto:collab@projectmeridian.com" class="text-meridian-burgundy font-bold hover:underline">
+              <a
+                href="mailto:collab@projectmeridian.com"
+                class="font-bold text-meridian-burgundy hover:underline"
+              >
                 collab@projectmeridian.com
               </a>
             </div>
-            
+
             <div class="border-l-4 border-meridian-burgundy pl-6">
-              <h3 class="text-xl font-bold mb-2">Just Saying Hi</h3>
-              <p class="text-meridian-steel mb-2">
-                Sometimes the best conversations start with no agenda. Drop us a line about anything!
+              <h3 class="mb-2 text-xl font-bold">Just Saying Hi</h3>
+              <p class="mb-2 text-meridian-steel">
+                Sometimes the best conversations start with no agenda. Drop us a
+                line about anything!
               </p>
-              <a href="mailto:hello@projectmeridian.com" class="text-meridian-burgundy font-bold hover:underline">
+              <a
+                href="mailto:hello@projectmeridian.com"
+                class="font-bold text-meridian-burgundy hover:underline"
+              >
                 hello@projectmeridian.com
               </a>
             </div>
           </div>
         </div>
-        
-        <div class="bg-meridian-light-gray p-8 rounded-lg">
-          <h2 class="text-3xl font-bold mb-8">Drop Us a Note</h2>
+
+        <div class="rounded-lg bg-meridian-light-gray p-8">
+          <h2 class="mb-8 text-3xl font-bold">Drop Us a Note</h2>
           <form class="space-y-6">
             <div>
-              <label for="name" class="block text-sm font-bold mb-2">What Should We Call You?</label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name"
-                class="w-full px-4 py-3 border border-meridian-steel/30 rounded-lg focus:outline-none focus:border-meridian-burgundy"
-                placeholder="Your name (or superhero alias)"
-              />
+              <label class="mb-2 block text-sm font-bold"
+                >What Should We Call You?
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="mt-2 w-full rounded-lg border border-meridian-steel/30 px-4 py-3 focus:border-meridian-burgundy focus:outline-none"
+                  placeholder="Your name (or superhero alias)"
+                />
+              </label>
             </div>
-            
+
             <div>
-              <label for="email" class="block text-sm font-bold mb-2">Where Can We Reply?</label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email"
-                class="w-full px-4 py-3 border border-meridian-steel/30 rounded-lg focus:outline-none focus:border-meridian-burgundy"
-                placeholder="your.email@example.com"
-              />
+              <label class="mb-2 block text-sm font-bold"
+                >Where Can We Reply?
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="mt-2 w-full rounded-lg border border-meridian-steel/30 px-4 py-3 focus:border-meridian-burgundy focus:outline-none"
+                  placeholder="your.email@example.com"
+                />
+              </label>
             </div>
-            
+
             <div>
-              <label for="challenge" class="block text-sm font-bold mb-2">What's on Your Mind?</label>
-              <textarea 
-                id="challenge" 
-                name="challenge"
-                rows={4}
-                class="w-full px-4 py-3 border border-meridian-steel/30 rounded-lg focus:outline-none focus:border-meridian-burgundy"
-                placeholder="Share your thoughts, questions, wild ideas, or just tell us about your day..."
-              ></textarea>
+              <label class="mb-2 block text-sm font-bold"
+                >What's on Your Mind?
+                <textarea
+                  id="challenge"
+                  name="challenge"
+                  rows={4}
+                  class="mt-2 w-full rounded-lg border border-meridian-steel/30 px-4 py-3 focus:border-meridian-burgundy focus:outline-none"
+                  placeholder="Share your thoughts, questions, wild ideas, or just tell us about your day..."
+                ></textarea>
+              </label>
             </div>
-            
-            <button 
+
+            <button
               type="submit"
-              class="w-full btn bg-meridian-burgundy text-white hover:bg-meridian-dark text-lg py-3"
+              class="btn w-full bg-meridian-burgundy py-3 text-lg text-white hover:bg-meridian-dark"
             >
               Send It! 🚀
             </button>
-            
-            <p class="text-sm text-meridian-steel text-center">
-              We read everything and reply as fast as humanly possible (usually same day!).
+
+            <p class="text-center text-sm text-meridian-steel">
+              We read everything and reply as fast as humanly possible (usually
+              same day!).
             </p>
           </form>
         </div>
       </div>
-      
-      <div class="bg-meridian-burgundy text-white p-12 rounded-lg mb-16">
-        <h2 class="text-3xl font-bold mb-6 text-center">Quick FYI</h2>
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+      <div class="mb-16 rounded-lg bg-meridian-burgundy p-12 text-white">
+        <h2 class="mb-6 text-center text-3xl font-bold">Quick FYI</h2>
+        <div class="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
           <div>
-            <h3 class="text-xl font-bold mb-4 text-white">We Work Best With People Who:</h3>
+            <h3 class="mb-4 text-xl font-bold text-white">
+              We Work Best With People Who:
+            </h3>
             <ul class="space-y-2">
               <li>💡 Love exploring new ideas</li>
               <li>🤝 See us as partners, not vendors</li>
@@ -132,7 +162,7 @@ import { getUrl } from '../utils/links';
             </ul>
           </div>
           <div>
-            <h3 class="text-xl font-bold mb-4 text-white">Just So You Know:</h3>
+            <h3 class="mb-4 text-xl font-bold text-white">Just So You Know:</h3>
             <ul class="space-y-2">
               <li>📱 We're pretty responsive</li>
               <li>☕ Virtual coffee chats are our jam</li>
@@ -142,26 +172,35 @@ import { getUrl } from '../utils/links';
           </div>
         </div>
       </div>
-      
+
       <div class="text-center">
-        <h2 class="text-4xl font-bold mb-6">Other Ways to Connect</h2>
-        <div class="flex flex-wrap justify-center gap-6 mb-8">
-          <a href={getUrl('articles')} class="text-meridian-burgundy font-bold hover:underline">
+        <h2 class="mb-6 text-4xl font-bold">Other Ways to Connect</h2>
+        <div class="mb-8 flex flex-wrap justify-center gap-6">
+          <a
+            href={getUrl("articles")}
+            class="font-bold text-meridian-burgundy hover:underline"
+          >
             Read Our Latest Thinking
           </a>
           <span class="text-meridian-steel">•</span>
-          <a href={getUrl('work')} class="text-meridian-burgundy font-bold hover:underline">
+          <a
+            href={getUrl("work")}
+            class="font-bold text-meridian-burgundy hover:underline"
+          >
             Explore Our Work
           </a>
           <span class="text-meridian-steel">•</span>
-          <a href={getUrl('about')} class="text-meridian-burgundy font-bold hover:underline">
+          <a
+            href={getUrl("about")}
+            class="font-bold text-meridian-burgundy hover:underline"
+          >
             Learn Our Philosophy
           </a>
         </div>
         <p class="text-xl text-meridian-steel">
           However you decide to connect, we can't wait to hear from you!
         </p>
-        <p class="text-2xl font-bold mt-4 text-meridian-burgundy">
+        <p class="mt-4 text-2xl font-bold text-meridian-burgundy">
           Let's make something awesome together. 💫
         </p>
       </div>

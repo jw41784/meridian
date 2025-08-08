@@ -1,43 +1,50 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import TableOfContents from '../../components/TableOfContents';
-import { getCollection, type CollectionEntry } from 'astro:content';
-import { getReadingTime } from '../../utils/readingTime';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TableOfContents from "../../components/TableOfContents";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { getReadingTime } from "../../utils/readingTime";
 
 export async function getStaticPaths() {
-  const articles = await getCollection('articles');
+  const articles = await getCollection("articles");
   return articles.map((article) => ({
     params: { slug: article.slug },
     props: article,
   }));
 }
 
-type Props = CollectionEntry<'articles'>;
+type Props = CollectionEntry<"articles">;
 
 const article = Astro.props;
 const { Content } = await article.render();
 const readingTime = await getReadingTime(article);
 
-const formattedDate = new Date(article.data.publishDate).toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
-});
+const formattedDate = new Date(article.data.publishDate).toLocaleDateString(
+  "en-US",
+  {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  },
+);
 
 // Show TOC for articles longer than 5 minutes
 const showTOC = readingTime.minutes > 5;
 ---
 
-<BaseLayout 
+<BaseLayout
   title={article.data.title}
   description={article.data.description}
   image={article.data.image?.src}
 >
   <article class="container py-12">
-    <header class="mb-8 text-center max-w-4xl mx-auto">
-      <h1 class="text-4xl font-bold mb-4 dark:text-gray-100">{article.data.title}</h1>
-      
-      <div class="flex items-center justify-center gap-4 text-sm text-meridian-steel dark:text-gray-400 mb-4">
+    <header class="mx-auto mb-8 max-w-4xl text-center">
+      <h1 class="mb-4 text-4xl font-bold dark:text-gray-100">
+        {article.data.title}
+      </h1>
+
+      <div
+        class="mb-4 flex items-center justify-center gap-4 text-sm text-meridian-steel dark:text-gray-400"
+      >
         <span>{article.data.author}</span>
         <span>•</span>
         <time datetime={article.data.publishDate.toISOString()}>
@@ -46,56 +53,76 @@ const showTOC = readingTime.minutes > 5;
         <span>•</span>
         <span>{readingTime.text}</span>
       </div>
-      
-      <div class="flex flex-wrap gap-2 justify-center">
-        {article.data.tags.map((tag) => (
-          <a href={`${import.meta.env.BASE_URL}tags/${tag}`} class="tag">
-            {tag}
-          </a>
-        ))}
+
+      <div class="flex flex-wrap justify-center gap-2">
+        {
+          article.data.tags.map((tag) => (
+            <a href={`${import.meta.env.BASE_URL}tags/${tag}`} class="tag">
+              {tag}
+            </a>
+          ))
+        }
       </div>
     </header>
-    
-    {article.data.image && (
-      <img 
-        src={article.data.image.src} 
-        alt={article.data.image.alt}
-        class="w-full max-w-4xl mx-auto rounded-lg shadow-lg mb-8"
-      />
-    )}
-    
+
+    {
+      article.data.image && (
+        <img
+          src={article.data.image.src}
+          alt={article.data.image.alt}
+          class="mx-auto mb-8 w-full max-w-4xl rounded-lg shadow-lg"
+        />
+      )
+    }
+
     {/* Main content area with TOC */}
-    <div class="max-w-7xl mx-auto">
-      {showTOC && (
-        <>
-          {/* Mobile/Tablet TOC - collapsible at top */}
-          <details class="lg:hidden mb-8 mx-auto max-w-4xl p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-            <summary class="cursor-pointer font-semibold text-meridian-burgundy dark:text-meridian-steel flex items-center justify-between">
-              <span>Table of Contents</span>
-              <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
-            <div class="mt-4 max-h-96 overflow-y-auto">
-              <TableOfContents client:load />
-            </div>
-          </details>
-        </>
-      )}
-      
+    <div class="mx-auto max-w-7xl">
+      {
+        showTOC && (
+          <>
+            {/* Mobile/Tablet TOC - collapsible at top */}
+            <details class="mx-auto mb-8 max-w-4xl rounded-lg border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800 lg:hidden">
+              <summary class="flex cursor-pointer items-center justify-between font-semibold text-meridian-burgundy dark:text-meridian-steel">
+                <span>Table of Contents</span>
+                <svg
+                  class="h-5 w-5 transform transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </summary>
+              <div class="mt-4 max-h-96 overflow-y-auto">
+                <TableOfContents client:load />
+              </div>
+            </details>
+          </>
+        )
+      }
+
       <div class="lg:grid lg:grid-cols-12 lg:gap-8">
         {/* Desktop TOC - sticky sidebar */}
-        {showTOC && (
-          <aside class="hidden lg:block lg:col-span-3">
-            <div class="sticky top-24 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-              <TableOfContents client:idle />
-            </div>
-          </aside>
-        )}
-        
+        {
+          showTOC && (
+            <aside class="hidden lg:col-span-3 lg:block">
+              <div class="sticky top-24 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-800">
+                <TableOfContents client:idle />
+              </div>
+            </aside>
+          )
+        }
+
         {/* Article content */}
         <div class={showTOC ? "lg:col-span-9" : "lg:col-span-12"}>
-          <div class="prose prose-lg mx-auto max-w-none prose-gray dark:prose-invert">
+          <div
+            class="prose prose-lg prose-gray mx-auto max-w-none dark:prose-invert"
+          >
             <Content />
           </div>
         </div>

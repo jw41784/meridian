@@ -37,7 +37,7 @@ A modern, performant blog built with Astro, featuring a sophisticated design and
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or pnpm
 
 ### Installation
@@ -112,6 +112,7 @@ meridian/
 ### Astro Config
 
 The site is configured in `astro.config.mjs`:
+
 - Site URL: `https://jw41784.github.io`
 - Base path: `/meridian`
 - Integrations: Tailwind CSS, MDX, React, Sitemap
@@ -130,6 +131,7 @@ The site automatically deploys to GitHub Pages when changes are pushed to the `m
 ## 🤝 Contributing
 
 We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details on:
+
 - Writing articles
 - Submitting pull requests
 - Code style guidelines
@@ -142,6 +144,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 🙏 Acknowledgments
 
 Built with:
+
 - [Astro](https://astro.build) - The web framework for content-driven websites
 - [Tailwind CSS](https://tailwindcss.com) - For utility-first styling
 - [Lunr.js](https://lunrjs.com) - For client-side search

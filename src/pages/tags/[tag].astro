@@ -1,16 +1,18 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ArticleCard from '../../components/ArticleCard.astro';
-import { getCollection } from 'astro:content';
-import { getReadingTime } from '../../utils/readingTime';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticleCard from "../../components/ArticleCard.astro";
+import { getCollection } from "astro:content";
+import { getReadingTime } from "../../utils/readingTime";
 
 export async function getStaticPaths() {
-  const allArticles = await getCollection('articles');
-  const uniqueTags = [...new Set(allArticles.flatMap((article) => article.data.tags))];
-  
+  const allArticles = await getCollection("articles");
+  const uniqueTags = [
+    ...new Set(allArticles.flatMap((article) => article.data.tags)),
+  ];
+
   return uniqueTags.map((tag) => {
     const filteredArticles = allArticles.filter((article) =>
-      article.data.tags.includes(tag)
+      article.data.tags.includes(tag),
     );
     return {
       params: { tag },
@@ -23,45 +25,50 @@ const { tag } = Astro.params;
 const { articles } = Astro.props;
 
 const sortedArticles = articles.sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
 );
 
 // Calculate reading time for each article
 const articlesWithReadingTime = await Promise.all(
   sortedArticles.map(async (article) => ({
     ...article,
-    readingTime: await getReadingTime(article)
-  }))
+    readingTime: await getReadingTime(article),
+  })),
 );
 ---
 
-<BaseLayout 
+<BaseLayout
   title={`Articles tagged with "${tag}"`}
   description={`Browse all articles tagged with "${tag}"`}
 >
   <section class="container py-12">
     <div class="mb-8">
-      <h1 class="text-4xl font-bold mb-2">
-        Tag: <span class="gradient-meridian bg-clip-text text-transparent">{tag}</span>
+      <h1 class="mb-2 text-4xl font-bold">
+        Tag: <span class="gradient-meridian bg-clip-text text-transparent"
+          >{tag}</span
+        >
       </h1>
       <p class="text-meridian-steel">
-        {articles.length} {articles.length === 1 ? 'article' : 'articles'} found
+        {articles.length}
+        {articles.length === 1 ? "article" : "articles"} found
       </p>
     </div>
-    
+
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {articlesWithReadingTime.map((article) => (
-        <ArticleCard
-          title={article.data.title}
-          description={article.data.description}
-          publishDate={article.data.publishDate}
-          author={article.data.author}
-          tags={article.data.tags}
-          slug={article.slug}
-          image={article.data.image}
-          readingTime={article.readingTime.text}
-        />
-      ))}
+      {
+        articlesWithReadingTime.map((article) => (
+          <ArticleCard
+            title={article.data.title}
+            description={article.data.description}
+            publishDate={article.data.publishDate}
+            author={article.data.author}
+            tags={article.data.tags}
+            slug={article.slug}
+            image={article.data.image}
+            readingTime={article.readingTime.text}
+          />
+        ))
+      }
     </div>
   </section>
 </BaseLayout>

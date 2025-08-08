@@ -1,18 +1,18 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
-import mdx from '@astrojs/mdx';
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
+import mdx from "@astrojs/mdx";
 
-import sitemap from '@astrojs/sitemap';
+import sitemap from "@astrojs/sitemap";
 
-import react from '@astrojs/react';
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://jw41784.github.io',
-  base: '/meridian',
+  site: "https://jw41784.github.io",
+  base: "/meridian",
   integrations: [tailwind(), mdx(), sitemap(), react()],
-  output: 'static',
+  output: "static",
   build: {
-    assets: 'astro'
-  }
+    assets: "astro",
+  },
 });

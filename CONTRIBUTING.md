@@ -54,11 +54,13 @@ Your article content goes here...
 ## 🌿 Branch Strategy
 
 1. **Create a feature branch** from `main`:
+
    ```bash
    git checkout -b article/your-article-name
    ```
 
 2. **Commit your changes**:
+
    ```bash
    git add .
    git commit -m "Add article: Your Article Title"
@@ -85,11 +87,13 @@ Before submitting your PR, ensure:
 ## 🚀 Local Development
 
 1. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 2. **Start the dev server**:
+
    ```bash
    npm run dev
    ```
@@ -100,7 +104,7 @@ Before submitting your PR, ensure:
 
 Here's a template to get you started:
 
-```mdx
+````mdx
 ---
 title: "Article Title Here"
 description: "Compelling description that summarizes the article in 150-160 characters"
@@ -130,6 +134,7 @@ Include code examples when relevant:
 // Example code
 console.log("Hello, Project Meridian!");
 ```
+````
 
 ## Best Practices
 
@@ -145,6 +150,7 @@ Summarize key takeaways and provide next steps for readers.
 
 - [Related Article 1](/articles/related-1)
 - [External Resource](https://example.com)
+
 ```
 
 ## 📋 Style Guide
@@ -164,3 +170,4 @@ If you need help:
 4. Reach out to the maintainers
 
 Thank you for contributing to Project Meridian Blog! 🚀
+```

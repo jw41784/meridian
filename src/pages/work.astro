@@ -1,26 +1,29 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { getUrl } from '../utils/links';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getUrl } from "../utils/links";
 
 const projects = [
   {
     title: "Reinventing a 150-Year-Old Institution",
     client: "Global Financial Services",
-    description: "How we helped a legacy bank become a digital-first powerhouse without losing its soul.",
+    description:
+      "How we helped a legacy bank become a digital-first powerhouse without losing its soul.",
     impact: "40% increase in customer engagement, 3x faster product launches",
     tags: ["Transformation", "Finance", "Digital"],
   },
   {
     title: "From Hierarchy to Network",
     client: "Fortune 500 Manufacturer",
-    description: "Dismantling command-and-control to build an adaptive, self-organizing ecosystem.",
+    description:
+      "Dismantling command-and-control to build an adaptive, self-organizing ecosystem.",
     impact: "60% reduction in decision time, 2x innovation output",
     tags: ["Organization Design", "Culture", "Leadership"],
   },
   {
     title: "The Startup That Scaled Its Soul",
     client: "Series C Tech Company",
-    description: "Preserving founder DNA while growing from 50 to 500 in 18 months.",
+    description:
+      "Preserving founder DNA while growing from 50 to 500 in 18 months.",
     impact: "Top 10 Best Places to Work, 95% culture score retention",
     tags: ["Scale", "Culture", "Growth"],
   },
@@ -30,156 +33,181 @@ const projects = [
     description: "Turning bureaucracy into a citizen-centered innovation lab.",
     impact: "80% improvement in service delivery, $12M in efficiency gains",
     tags: ["Government", "Innovation", "Service Design"],
-  }
+  },
 ];
 ---
 
-<BaseLayout 
-  title="Our Work" 
+<BaseLayout
+  title="Our Work"
   description="Real transformations. Real results. Real humans at the center of it all."
 >
   <section class="container py-16">
-    <div class="max-w-6xl mx-auto">
+    <div class="mx-auto max-w-6xl">
       <div class="mb-16">
-        <p class="text-meridian-burgundy font-bold uppercase tracking-wider mb-4">
+        <p
+          class="mb-4 font-bold uppercase tracking-wider text-meridian-burgundy"
+        >
           Stories From the Field
         </p>
-        <h1 class="text-5xl md:text-6xl font-bold mb-8">
-          Work We're <span class="gradient-meridian bg-clip-text text-transparent">Proud Of</span>
+        <h1 class="mb-8 text-5xl font-bold md:text-6xl">
+          Work We're <span
+            class="gradient-meridian bg-clip-text text-transparent"
+            >Proud Of</span
+          >
         </h1>
-        <p class="text-2xl font-light text-meridian-steel max-w-4xl">
-          Behind every project is a team that decided to try something different. 
-          Here's what happens when great people come together to create positive change.
+        <p class="max-w-4xl text-2xl font-light text-meridian-steel">
+          Behind every project is a team that decided to try something
+          different. Here's what happens when great people come together to
+          create positive change.
         </p>
       </div>
-      
-      <div class="grid gap-12 mb-16">
-        {projects.map((project, index) => (
-          <div class="group">
-            <div class="flex flex-col lg:flex-row gap-8 p-8 rounded-lg border-2 border-transparent hover:border-meridian-burgundy transition-all duration-300">
-              <div class="flex-1">
-                <p class="text-meridian-burgundy font-bold uppercase tracking-wider mb-2">
-                  {project.client}
-                </p>
-                <h2 class="text-3xl font-bold mb-4 group-hover:text-meridian-burgundy transition-colors">
-                  {project.title}
-                </h2>
-                <p class="text-lg text-meridian-steel mb-4">
-                  {project.description}
-                </p>
-                <div class="mb-4">
-                  <p class="font-bold text-meridian-dark mb-1">Impact:</p>
-                  <p class="text-lg">{project.impact}</p>
+
+      <div class="mb-16 grid gap-12">
+        {
+          projects.map((project, index) => (
+            <div class="group">
+              <div class="flex flex-col gap-8 rounded-lg border-2 border-transparent p-8 transition-all duration-300 hover:border-meridian-burgundy lg:flex-row">
+                <div class="flex-1">
+                  <p class="mb-2 font-bold uppercase tracking-wider text-meridian-burgundy">
+                    {project.client}
+                  </p>
+                  <h2 class="mb-4 text-3xl font-bold transition-colors group-hover:text-meridian-burgundy">
+                    {project.title}
+                  </h2>
+                  <p class="mb-4 text-lg text-meridian-steel">
+                    {project.description}
+                  </p>
+                  <div class="mb-4">
+                    <p class="mb-1 font-bold text-meridian-dark">Impact:</p>
+                    <p class="text-lg">{project.impact}</p>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span class="rounded-full bg-meridian-light-gray px-3 py-1 text-sm text-meridian-dark">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div class="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span class="px-3 py-1 bg-meridian-light-gray text-meridian-dark rounded-full text-sm">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div class="lg:w-1/3 flex items-center justify-center">
-                <div class="text-6xl font-bold text-meridian-light-gray group-hover:text-meridian-burgundy transition-colors">
-                  {String(index + 1).padStart(2, '0')}
+                <div class="flex items-center justify-center lg:w-1/3">
+                  <div class="text-6xl font-bold text-meridian-light-gray transition-colors group-hover:text-meridian-burgundy">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
-      
-      <div class="bg-meridian-burgundy text-white p-12 rounded-lg mb-16">
-        <h2 class="text-3xl font-bold mb-6">Is This Your Vibe?</h2>
-        <div class="grid md:grid-cols-2 gap-8">
+
+      <div class="mb-16 rounded-lg bg-meridian-burgundy p-12 text-white">
+        <h2 class="mb-6 text-3xl font-bold">Is This Your Vibe?</h2>
+        <div class="grid gap-8 md:grid-cols-2">
           <div>
-            <h3 class="text-xl font-bold mb-4 text-white">You'll Love Working With Us If:</h3>
+            <h3 class="mb-4 text-xl font-bold text-white">
+              You'll Love Working With Us If:
+            </h3>
             <ul class="space-y-3">
               <li class="flex items-start">
-                <span class="text-2xl mr-3">✨</span>
+                <span class="mr-3 text-2xl">✨</span>
                 <span>You're excited about trying new approaches</span>
               </li>
               <li class="flex items-start">
-                <span class="text-2xl mr-3">✨</span>
+                <span class="mr-3 text-2xl">✨</span>
                 <span>You value honest conversations and real feedback</span>
               </li>
               <li class="flex items-start">
-                <span class="text-2xl mr-3">✨</span>
-                <span>You want partners who stick around for the whole journey</span>
+                <span class="mr-3 text-2xl">✨</span>
+                <span
+                  >You want partners who stick around for the whole journey</span
+                >
               </li>
               <li class="flex items-start">
-                <span class="text-2xl mr-3">✨</span>
+                <span class="mr-3 text-2xl">✨</span>
                 <span>You care more about outcomes than outputs</span>
               </li>
             </ul>
           </div>
           <div>
-            <h3 class="text-xl font-bold mb-4 text-white">We Might Not Be a Match If:</h3>
+            <h3 class="mb-4 text-xl font-bold text-white">
+              We Might Not Be a Match If:
+            </h3>
             <ul class="space-y-3">
               <li class="flex items-start">
-                <span class="text-2xl mr-3">🤔</span>
+                <span class="mr-3 text-2xl">🤔</span>
                 <span>You prefer traditional consulting deliverables</span>
               </li>
               <li class="flex items-start">
-                <span class="text-2xl mr-3">🤔</span>
-                <span>You're looking for someone to rubber-stamp existing plans</span>
+                <span class="mr-3 text-2xl">🤔</span>
+                <span
+                  >You're looking for someone to rubber-stamp existing plans</span
+                >
               </li>
               <li class="flex items-start">
-                <span class="text-2xl mr-3">🤔</span>
+                <span class="mr-3 text-2xl">🤔</span>
                 <span>You want quick fixes without addressing root causes</span>
               </li>
               <li class="flex items-start">
-                <span class="text-2xl mr-3">🤔</span>
+                <span class="mr-3 text-2xl">🤔</span>
                 <span>You need someone who follows a rigid playbook</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      
+
       <div class="mb-16">
-        <h2 class="text-4xl font-bold mb-8">How We Work</h2>
-        <div class="grid md:grid-cols-3 gap-8">
+        <h2 class="mb-8 text-4xl font-bold">How We Work</h2>
+        <div class="grid gap-8 md:grid-cols-3">
           <div class="text-center">
-            <div class="text-5xl font-bold text-meridian-burgundy mb-4">01</div>
-            <h3 class="text-xl font-bold mb-2">Listen & Learn</h3>
+            <div class="mb-4 text-5xl font-bold text-meridian-burgundy">01</div>
+            <h3 class="mb-2 text-xl font-bold">Listen & Learn</h3>
             <p class="text-meridian-steel">
-              We start by really understanding your world. What's working? What's not? 
-              What keeps you up at night? Let's figure it out together.
+              We start by really understanding your world. What's working?
+              What's not? What keeps you up at night? Let's figure it out
+              together.
             </p>
           </div>
           <div class="text-center">
-            <div class="text-5xl font-bold text-meridian-burgundy mb-4">02</div>
-            <h3 class="text-xl font-bold mb-2">Create Together</h3>
+            <div class="mb-4 text-5xl font-bold text-meridian-burgundy">02</div>
+            <h3 class="mb-2 text-xl font-bold">Create Together</h3>
             <p class="text-meridian-steel">
-              The best solutions come from collaboration. We bring ideas, you bring context, 
-              and together we build something that actually works.
+              The best solutions come from collaboration. We bring ideas, you
+              bring context, and together we build something that actually
+              works.
             </p>
           </div>
           <div class="text-center">
-            <div class="text-5xl font-bold text-meridian-burgundy mb-4">03</div>
-            <h3 class="text-xl font-bold mb-2">Make It Stick</h3>
+            <div class="mb-4 text-5xl font-bold text-meridian-burgundy">03</div>
+            <h3 class="mb-2 text-xl font-bold">Make It Stick</h3>
             <p class="text-meridian-steel">
-              We're not here for the quick win. We stick around to make sure changes take root, 
-              teams feel confident, and success is sustainable.
+              We're not here for the quick win. We stick around to make sure
+              changes take root, teams feel confident, and success is
+              sustainable.
             </p>
           </div>
         </div>
       </div>
-      
-      <div class="bg-meridian-light-gray p-12 rounded-lg text-center">
-        <h2 class="text-4xl font-bold mb-6">
+
+      <div class="rounded-lg bg-meridian-light-gray p-12 text-center">
+        <h2 class="mb-6 text-4xl font-bold">
           Got a Challenge We Can Help With?
         </h2>
-        <p class="text-xl text-meridian-steel mb-8 max-w-3xl mx-auto">
-          Every great partnership starts with a conversation. 
-          We'd love to hear what you're working on and explore how we might help.
+        <p class="mx-auto mb-8 max-w-3xl text-xl text-meridian-steel">
+          Every great partnership starts with a conversation. We'd love to hear
+          what you're working on and explore how we might help.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href={getUrl('contact')} class="btn bg-meridian-burgundy text-white hover:bg-meridian-dark text-lg px-8 py-3">
+        <div class="flex flex-col justify-center gap-4 sm:flex-row">
+          <a
+            href={getUrl("contact")}
+            class="btn bg-meridian-burgundy px-8 py-3 text-lg text-white hover:bg-meridian-dark"
+          >
             Let's Chat
           </a>
-          <a href={getUrl('about')} class="btn bg-transparent border-2 border-meridian-dark text-meridian-dark hover:bg-meridian-dark hover:text-white text-lg px-8 py-3">
+          <a
+            href={getUrl("about")}
+            class="btn border-2 border-meridian-dark bg-transparent px-8 py-3 text-lg text-meridian-dark hover:bg-meridian-dark hover:text-white"
+          >
             Learn More About Us
           </a>
         </div>
