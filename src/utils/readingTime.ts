@@ -16,18 +16,18 @@ export function calculateReadingTime(text: string, wordsPerMinute: number = 200)
     .trim();
 
   // Count words
-  const words = cleanText.split(/\s+/).filter(word => word.length > 0).length;
-  
+  const words = cleanText.split(/\s+/).filter((word) => word.length > 0).length;
+
   // Calculate reading time
   const minutes = Math.ceil(words / wordsPerMinute);
-  
+
   // Format text
   const readingTimeText = minutes === 1 ? '1 min read' : `${minutes} min read`;
-  
+
   return {
     minutes,
     words,
-    text: readingTimeText
+    text: readingTimeText,
   };
 }
 
@@ -41,15 +41,15 @@ export async function getReadingTime(content: any) {
   if (content.body) {
     return calculateReadingTime(content.body);
   }
-  
+
   // Fallback for plain text
   if (typeof content === 'string') {
     return calculateReadingTime(content);
   }
-  
+
   return {
     minutes: 0,
     words: 0,
-    text: '1 min read'
+    text: '1 min read',
   };
 }

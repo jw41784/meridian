@@ -13,6 +13,6 @@ export default defineConfig({
   integrations: [tailwind(), mdx(), sitemap(), react()],
   output: 'static',
   build: {
-    assets: 'astro'
-  }
+    assets: 'astro',
+  },
 });

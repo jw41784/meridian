@@ -20,43 +20,101 @@ const { title, description, publishDate, author, tags, slug, readingTime, image 
 const formattedDate = new Date(publishDate).toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
-  day: 'numeric'
+  day: 'numeric',
 });
 ---
 
-<article class="card p-6 h-full flex flex-col">
-  {image && (
-    <img 
-      src={image.src} 
-      alt={image.alt} 
-      class="w-full h-48 object-cover rounded-md mb-4"
-    />
-  )}
-  
-  <h2 class="text-xl font-semibold mb-2">
-    <a href={getUrl(`articles/${slug}`)} class="hover:text-meridian-burgundy dark:hover:text-meridian-steel transition-colors">
-      {title}
-    </a>
-  </h2>
-  
-  <p class="text-meridian-steel dark:text-gray-400 mb-4 flex-grow">
-    {description}
-  </p>
-  
-  <div class="flex flex-wrap gap-2 mb-4">
-    {tags.map((tag) => (
-      <a href={getUrl(`tags/${tag}`)} class="tag">
-        {tag}
+<article
+  class="card card-hover group flex h-full flex-col overflow-hidden p-0 transition-all duration-300 hover:border-meridian-burgundy/20 dark:hover:border-meridian-steel/30"
+>
+  {
+    image && (
+      <div class="relative h-48 overflow-hidden">
+        <img
+          src={image.src}
+          alt={image.alt}
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      </div>
+    )
+  }
+
+  <div class="flex flex-1 flex-col p-6">
+    <h2 class="mb-3 text-xl font-bold leading-tight">
+      <a
+        href={getUrl(`articles/${slug}`)}
+        class="bg-gradient-to-r from-meridian-burgundy to-meridian-burgundy bg-[length:0%_2px] bg-left-bottom bg-no-repeat transition-all duration-300 hover:bg-[length:100%_2px] dark:from-meridian-steel dark:to-meridian-steel"
+      >
+        {title}
       </a>
-    ))}
-  </div>
-  
-  <div class="text-sm text-meridian-steel dark:text-gray-400">
-    <span>{author}</span> • <time datetime={publishDate.toISOString()}>{formattedDate}</time>
-    {readingTime && (
-      <>
-        {' '}• <span>{readingTime}</span>
-      </>
-    )}
+    </h2>
+
+    <p
+      class="mb-4 line-clamp-3 flex-grow text-base leading-relaxed text-gray-600 dark:text-gray-400"
+    >
+      {description}
+    </p>
+
+    <div class="mb-4 flex flex-wrap gap-2">
+      {
+        tags.slice(0, 3).map((tag) => (
+          <a
+            href={getUrl(`tags/${tag}`)}
+            class="tag transform transition-all duration-200 hover:scale-105"
+          >
+            #{tag}
+          </a>
+        ))
+      }
+      {
+        tags.length > 3 && (
+          <span class="tag cursor-default opacity-60">+{tags.length - 3} more</span>
+        )
+      }
+    </div>
+
+    <div
+      class="flex items-center justify-between border-t border-gray-100 pt-4 text-sm text-gray-500 dark:border-gray-700 dark:text-gray-400"
+    >
+      <div class="flex items-center gap-2">
+        <div
+          class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-meridian-burgundy/10 to-meridian-steel/10 text-xs font-bold text-meridian-burgundy dark:from-meridian-steel/20 dark:to-meridian-burgundy/20 dark:text-meridian-steel"
+        >
+          {
+            author
+              .split(' ')
+              .map((n) => n[0])
+              .join('')
+              .slice(0, 2)
+              .toUpperCase()
+          }
+        </div>
+        <div class="flex flex-col">
+          <span class="font-medium text-gray-700 dark:text-gray-300">{author}</span>
+          <time
+            datetime={publishDate.toISOString()}
+            class="text-xs text-gray-500 dark:text-gray-500"
+          >
+            {formattedDate}
+          </time>
+        </div>
+      </div>
+      {
+        readingTime && (
+          <span class="flex items-center gap-1 text-xs font-medium text-meridian-burgundy dark:text-meridian-steel">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            {readingTime}
+          </span>
+        )
+      }
+    </div>
   </div>
 </article>

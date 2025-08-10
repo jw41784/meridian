@@ -17,85 +17,139 @@ const recentArticles = allArticles
 const articlesWithReadingTime = await Promise.all(
   recentArticles.map(async (article) => ({
     ...article,
-    readingTime: await getReadingTime(article)
+    readingTime: await getReadingTime(article),
   }))
 );
 ---
 
 <BaseLayout title="Home">
-  <section class="min-h-screen flex items-center justify-center py-20">
+  <section class="relative flex min-h-screen items-center justify-center overflow-hidden py-20">
+    <!-- Background decoration -->
+    <div class="absolute inset-0 -z-10">
+      <div
+        class="animate-float absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-meridian-burgundy/5 blur-3xl"
+      >
+      </div>
+      <div
+        class="animate-float absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-meridian-steel/5 blur-3xl"
+        style="animation-delay: 3s"
+      >
+      </div>
+    </div>
+
     <div class="container">
-      <div class="max-w-5xl mx-auto text-center">
-        <p class="text-meridian-burgundy dark:text-meridian-steel font-bold uppercase tracking-wider mb-4">
+      <div class="mx-auto max-w-5xl text-center">
+        <p
+          class="animate-fade-in mb-4 font-bold uppercase tracking-wider text-meridian-burgundy dark:text-meridian-steel"
+        >
           Finding Your True North
         </p>
-        <h1 class="text-6xl md:text-7xl font-bold mb-6">
-          <span class="gradient-meridian bg-clip-text text-transparent">
+        <h1 class="animate-slide-up mb-6 text-6xl font-bold md:text-7xl lg:text-8xl">
+          <span class="gradient-meridian text-shadow bg-clip-text text-transparent">
             Project Meridian
           </span>
         </h1>
-        <p class="text-2xl md:text-3xl font-light text-meridian-steel dark:text-gray-300 mb-8 leading-relaxed">
-          Navigate beyond <span class="text-meridian-burgundy font-semibold">"best practice"</span> 
+        <p
+          class="animate-slide-up mb-8 text-2xl font-light leading-relaxed text-gray-600 dark:text-gray-300 md:text-3xl"
+          style="animation-delay: 0.1s"
+        >
+          Navigate beyond <span
+            class="font-semibold text-meridian-burgundy dark:text-meridian-steel"
+            >"best practice"</span
+          >
           toward the right way.
         </p>
-        <p class="text-xl text-meridian-dark dark:text-gray-300 max-w-3xl mx-auto mb-12">
-          Like the meridian line that defines true north, we challenge leaders to move past 
-          "how everyone else does it" and find their authentic path to meaningful impact.
+        <p
+          class="animate-slide-up mx-auto mb-12 max-w-3xl text-xl leading-relaxed text-gray-700 dark:text-gray-400"
+          style="animation-delay: 0.2s"
+        >
+          Like the meridian line that defines true north, we challenge leaders to move past "how
+          everyone else does it" and find their authentic path to meaningful impact.
         </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href={getUrl('articles')} class="btn bg-meridian-burgundy text-white hover:bg-meridian-dark text-lg px-8 py-3">
-            Explore Our Thinking
+
+        <div
+          class="animate-fade-in flex flex-col justify-center gap-4 sm:flex-row"
+          style="animation-delay: 0.3s"
+        >
+          <a
+            href={getUrl('articles')}
+            class="group relative overflow-hidden rounded-lg bg-meridian-burgundy px-8 py-4 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+          >
+            <span class="relative z-10">Explore Our Thinking</span>
+            <div
+              class="absolute inset-0 -z-0 bg-gradient-to-r from-meridian-steel to-meridian-burgundy opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            >
+            </div>
           </a>
-          <a href={getUrl('about')} class="btn bg-transparent border-2 border-meridian-burgundy text-meridian-burgundy hover:bg-meridian-burgundy hover:text-white text-lg px-8 py-3">
-            Get to Know Us
+          <a
+            href={getUrl('about')}
+            class="group relative overflow-hidden rounded-lg border-2 border-meridian-burgundy bg-transparent px-8 py-4 text-lg font-medium text-meridian-burgundy transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg dark:border-meridian-steel dark:text-meridian-steel"
+          >
+            <span class="relative z-10">Get to Know Us</span>
+            <div
+              class="absolute inset-0 -z-0 bg-meridian-burgundy opacity-0 transition-opacity duration-300 group-hover:opacity-10 dark:bg-meridian-steel"
+            >
+            </div>
           </a>
         </div>
       </div>
     </div>
   </section>
-  
-  {recentArticles.length > 0 && (
-    <section class="container py-20 border-t border-meridian-light-gray dark:border-gray-700">
-      <div class="mb-12">
-        <p class="text-meridian-burgundy dark:text-meridian-steel font-bold uppercase tracking-wider mb-4">
-          Fresh Off the Press
-        </p>
-        <div class="flex items-end justify-between mb-8">
-          <h2 class="text-4xl md:text-5xl font-bold dark:text-gray-100">
-            Charting New <span class="text-meridian-burgundy dark:text-meridian-steel">Territory</span>
-          </h2>
-          <a href={getUrl('articles')} class="btn bg-transparent border border-meridian-burgundy text-meridian-burgundy hover:bg-meridian-burgundy hover:text-white hidden sm:inline-flex">
+
+  {
+    recentArticles.length > 0 && (
+      <section class="container border-t border-gray-200 py-20 dark:border-gray-700">
+        <div class="mb-12">
+          <p class="animate-fade-in mb-4 font-bold uppercase tracking-wider text-meridian-burgundy dark:text-meridian-steel">
+            Fresh Off the Press
+          </p>
+          <div class="mb-8 flex items-end justify-between">
+            <h2 class="animate-slide-up text-4xl font-bold text-gray-800 dark:text-gray-100 md:text-5xl lg:text-6xl">
+              Charting New{' '}
+              <span class="gradient-meridian bg-clip-text text-transparent">Territory</span>
+            </h2>
+            <a
+              href={getUrl('articles')}
+              class="btn hidden border border-meridian-burgundy bg-transparent text-meridian-burgundy hover:bg-meridian-burgundy hover:text-white sm:inline-flex"
+            >
+              Read More →
+            </a>
+          </div>
+          <p
+            class="animate-fade-in max-w-3xl text-xl leading-relaxed text-gray-600 dark:text-gray-400"
+            style="animation-delay: 0.1s"
+          >
+            Where conventional wisdom meets its match. We question the status quo, challenge
+            "industry standards," and explore what's possible when you dare to lead differently.
+          </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {articlesWithReadingTime.map((article, index) => (
+            <div class="animate-slide-up" style={`animation-delay: ${0.1 * (index + 1)}s`}>
+              <ArticleCard
+                title={article.data.title}
+                description={article.data.description}
+                publishDate={article.data.publishDate}
+                author={article.data.author}
+                tags={article.data.tags}
+                slug={article.slug}
+                image={article.data.image}
+                readingTime={article.readingTime.text}
+              />
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-8 sm:hidden">
+          <a
+            href={getUrl('articles')}
+            class="btn w-full border border-meridian-burgundy bg-transparent text-center text-meridian-burgundy hover:bg-meridian-burgundy hover:text-white"
+          >
             Read More →
           </a>
         </div>
-        <p class="text-xl text-meridian-steel dark:text-gray-300 max-w-3xl">
-          Where conventional wisdom meets its match. We question the status quo, 
-          challenge "industry standards," and explore what's possible when you dare to lead differently.
-        </p>
-      </div>
-      
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {articlesWithReadingTime.map((article) => (
-          <ArticleCard
-            title={article.data.title}
-            description={article.data.description}
-            publishDate={article.data.publishDate}
-            author={article.data.author}
-            tags={article.data.tags}
-            slug={article.slug}
-            image={article.data.image}
-            readingTime={article.readingTime.text}
-          />
-        ))}
-      </div>
-      
-      <div class="mt-8 sm:hidden">
-        <a href={getUrl('articles')} class="btn w-full text-center bg-transparent border border-meridian-burgundy text-meridian-burgundy hover:bg-meridian-burgundy hover:text-white">
-          Read More →
-        </a>
-      </div>
-    </section>
-  )}
-  
+      </section>
+    )
+  }
 </BaseLayout>

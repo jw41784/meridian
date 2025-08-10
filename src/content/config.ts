@@ -9,10 +9,12 @@ const articlesCollection = defineCollection({
     author: z.string(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
-    image: z.object({
-      src: z.string(),
-      alt: z.string(),
-    }).optional(),
+    image: z
+      .object({
+        src: z.string(),
+        alt: z.string(),
+      })
+      .optional(),
   }),
 });
 

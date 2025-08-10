@@ -3,82 +3,112 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getUrl } from '../utils/links';
 ---
 
-<BaseLayout 
-  title="About" 
+<BaseLayout
+  title="About"
   description="We believe the future isn't something that happens to us—it's something we create together."
 >
   <section class="container py-16">
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-5xl font-bold mb-12 gradient-meridian bg-clip-text text-transparent">
+    <div class="mx-auto max-w-4xl">
+      <h1 class="gradient-meridian mb-12 bg-clip-text text-5xl font-bold text-transparent">
         Finding Your Meridian
       </h1>
-      
-      <div class="prose prose-lg prose-headings:text-meridian-burgundy prose-gray dark:prose-invert max-w-none">
-        <p class="text-2xl font-light leading-relaxed text-meridian-steel dark:text-gray-300 mb-8">
-          In navigation, the meridian line represents true north—not magnetic north, but the unchanging reference point that guides you home. For leaders and organizations, we are that meridian.
+
+      <div
+        class="prose prose-lg prose-gray max-w-none dark:prose-invert prose-headings:text-meridian-burgundy"
+      >
+        <p class="mb-8 text-2xl font-light leading-relaxed text-meridian-steel dark:text-gray-300">
+          In navigation, the meridian line represents true north—not magnetic north, but the
+          unchanging reference point that guides you home. For leaders and organizations, we are
+          that meridian.
         </p>
-        
-        <div class="bg-meridian-light-gray dark:bg-gray-800 p-8 rounded-lg my-12">
-          <p class="text-xl font-medium text-meridian-dark dark:text-gray-100 mb-0">
-            "'Best practice' has become code for 'how everyone else does it.' We challenge leaders to move beyond the comfortable consensus toward what's actually right."
+
+        <div class="my-12 rounded-lg bg-meridian-light-gray p-8 dark:bg-gray-800">
+          <p class="mb-0 text-xl font-medium text-meridian-dark dark:text-gray-100">
+            "'Best practice' has become code for 'how everyone else does it.' We challenge leaders
+            to move beyond the comfortable consensus toward what's actually right."
           </p>
         </div>
-        
-        <h2 class="text-3xl font-bold mt-12 mb-6 dark:text-gray-100">The Status Quo Problem</h2>
+
+        <h2 class="mb-6 mt-12 text-3xl font-bold dark:text-gray-100">The Status Quo Problem</h2>
         <p class="text-lg dark:text-gray-300">
-          "Best practice" sounds smart, doesn't it? But here's the thing—it's often just a fancy way of saying "this is how everyone else does it." The problem isn't that these practices are wrong, it's that they've become default answers to complex questions.
+          "Best practice" sounds smart, doesn't it? But here's the thing—it's often just a fancy way
+          of saying "this is how everyone else does it." The problem isn't that these practices are
+          wrong, it's that they've become default answers to complex questions.
         </p>
         <p class="text-lg dark:text-gray-300">
-          Like a compass pointing to magnetic north instead of true north, following best practices can leave you slightly off course. Close enough to feel right, but not quite where you need to be.
+          Like a compass pointing to magnetic north instead of true north, following best practices
+          can leave you slightly off course. Close enough to feel right, but not quite where you
+          need to be.
         </p>
-        
-        <h2 class="text-3xl font-bold mt-12 mb-6 dark:text-gray-100">Our True North Principles</h2>
+
+        <h2 class="mb-6 mt-12 text-3xl font-bold dark:text-gray-100">Our True North Principles</h2>
         <div class="space-y-6">
           <div class="border-l-4 border-meridian-burgundy pl-6">
-            <h3 class="text-xl font-bold mb-2 dark:text-gray-100">Question the Given</h3>
-            <p class="dark:text-gray-300">When someone says "that's just how it's done," we ask "but is it how it should be done?" The most dangerous phrase in leadership isn't "we've never done it that way"—it's "everyone else does it this way."</p>
+            <h3 class="mb-2 text-xl font-bold dark:text-gray-100">Question the Given</h3>
+            <p class="dark:text-gray-300">
+              When someone says "that's just how it's done," we ask "but is it how it should be
+              done?" The most dangerous phrase in leadership isn't "we've never done it that
+              way"—it's "everyone else does it this way."
+            </p>
           </div>
-          
+
           <div class="border-l-4 border-meridian-burgundy pl-6">
-            <h3 class="text-xl font-bold mb-2 dark:text-gray-100">Context Over Convention</h3>
-            <p class="dark:text-gray-300">What works for Google might not work for your 50-person startup. What works in Silicon Valley might not work in small-town Ohio. We help you find your right way, not the popular way.</p>
+            <h3 class="mb-2 text-xl font-bold dark:text-gray-100">Context Over Convention</h3>
+            <p class="dark:text-gray-300">
+              What works for Google might not work for your 50-person startup. What works in Silicon
+              Valley might not work in small-town Ohio. We help you find your right way, not the
+              popular way.
+            </p>
           </div>
-          
+
           <div class="border-l-4 border-meridian-burgundy pl-6">
-            <h3 class="text-xl font-bold mb-2 dark:text-gray-100">Navigate by Values</h3>
-            <p class="dark:text-gray-300">Your meridian isn't found in industry reports or competitor analysis—it's found in your values, your purpose, and your unique context. We help you calibrate your compass to your true north.</p>
+            <h3 class="mb-2 text-xl font-bold dark:text-gray-100">Navigate by Values</h3>
+            <p class="dark:text-gray-300">
+              Your meridian isn't found in industry reports or competitor analysis—it's found in
+              your values, your purpose, and your unique context. We help you calibrate your compass
+              to your true north.
+            </p>
           </div>
         </div>
-        
-        <h2 class="text-3xl font-bold mt-12 mb-6 dark:text-gray-100">Why It Matters Now</h2>
+
+        <h2 class="mb-6 mt-12 text-3xl font-bold dark:text-gray-100">Why It Matters Now</h2>
         <p class="text-lg dark:text-gray-300">
-          We're living through a time when the old playbooks aren't working. Remote work, AI, changing generational values, global uncertainty—the "best practices" that got us here might not get us there.
+          We're living through a time when the old playbooks aren't working. Remote work, AI,
+          changing generational values, global uncertainty—the "best practices" that got us here
+          might not get us there.
         </p>
         <p class="text-lg dark:text-gray-300">
-          This blog is where we explore what comes next. Where we challenge sacred cows, question obvious answers, and help leaders find their meridian in an increasingly complex world.
+          This blog is where we explore what comes next. Where we challenge sacred cows, question
+          obvious answers, and help leaders find their meridian in an increasingly complex world.
         </p>
-        
-        <div class="bg-meridian-burgundy text-white p-8 rounded-lg my-12">
-          <h3 class="text-2xl font-bold mb-4 text-white">Let's Connect</h3>
-          <p class="text-lg mb-4">
-            The best part of what we do? Meeting amazing people doing amazing things. 
-            If that's you (spoiler: it probably is), we'd love to chat.
+
+        <div class="my-12 rounded-lg bg-meridian-burgundy p-8 text-white">
+          <h3 class="mb-4 text-2xl font-bold text-white">Let's Connect</h3>
+          <p class="mb-4 text-lg">
+            The best part of what we do? Meeting amazing people doing amazing things. If that's you
+            (spoiler: it probably is), we'd love to chat.
           </p>
           <div class="flex gap-4">
-            <a href="mailto:info@eudexio.com" class="btn bg-white text-meridian-burgundy hover:bg-meridian-light-gray">
+            <a
+              href="mailto:info@eudexio.com"
+              class="btn bg-white text-meridian-burgundy hover:bg-meridian-light-gray"
+            >
               Drop Us a Line
             </a>
-            <a href={getUrl('rss.xml')} class="btn border-2 border-white text-white hover:bg-white hover:text-meridian-burgundy">
+            <a
+              href={getUrl('rss.xml')}
+              class="btn border-2 border-white text-white hover:bg-white hover:text-meridian-burgundy"
+            >
               Stay in the Loop
             </a>
           </div>
         </div>
-        
+
         <div class="mt-12 text-center">
           <p class="text-xl font-light text-meridian-steel dark:text-gray-300">
             Ready to move beyond "how everyone else does it" and find your right way?
           </p>
-          <p class="text-2xl font-bold mt-4 text-meridian-burgundy dark:text-meridian-steel">
+          <p class="mt-4 text-2xl font-bold text-meridian-burgundy dark:text-meridian-steel">
             Let's find your true north. 🧭
           </p>
         </div>

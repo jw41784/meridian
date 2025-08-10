@@ -24,8 +24,17 @@
       "Bash(cat:*)",
       "Bash(cp:*)",
       "Bash(diff:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(git restore:*)",
+      "Bash(node:*)",
+      "Bash(awk:*)",
+      "Bash(gh auth:*)",
+      "Bash(npx prettier:*)",
+      "Bash(npm run format:*)",
+      "Bash(pkill:*)",
+      "Bash(true)"
     ],
     "deny": []
-  }
+  },
+  "enableAllProjectMcpServers": false
 }

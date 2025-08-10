@@ -4,10 +4,10 @@
 
 @layer base {
   :root {
-    --color-primary: #4A2532;
-    --color-secondary: #607D8B;
-    --color-light: #E0E4E8;
-    --color-dark: #1A1A1A;
+    --color-primary: #4a2532;
+    --color-secondary: #607d8b;
+    --color-light: #e0e4e8;
+    --color-dark: #1a1a1a;
     --color-text: #333333;
   }
 
@@ -19,22 +19,27 @@
     @apply antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-semibold text-meridian-dark dark:text-gray-100;
   }
 
   a {
-    @apply text-meridian-burgundy hover:text-meridian-steel dark:text-meridian-steel dark:hover:text-meridian-light-gray transition-colors;
+    @apply text-meridian-burgundy transition-colors hover:text-meridian-steel dark:text-meridian-steel dark:hover:text-meridian-light-gray;
   }
 }
 
 @layer components {
   .container {
-    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
   }
 
   .btn {
-    @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-meridian-burgundy hover:bg-meridian-steel focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-meridian-burgundy transition-colors;
+    @apply inline-flex items-center rounded-lg border border-transparent bg-meridian-burgundy px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-meridian-steel hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-meridian-burgundy focus:ring-offset-2;
   }
 
   .btn-secondary {
@@ -42,15 +47,19 @@
   }
 
   .btn-outline {
-    @apply bg-transparent text-meridian-burgundy border-meridian-burgundy hover:bg-meridian-burgundy hover:text-white;
+    @apply border-meridian-burgundy bg-transparent text-meridian-burgundy hover:bg-meridian-burgundy hover:text-white;
   }
 
   .card {
-    @apply bg-white dark:bg-gray-800 border border-meridian-light-gray dark:border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-shadow;
+    @apply rounded-xl border border-meridian-light-gray bg-white shadow-sm transition-all duration-300 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1 hover:shadow-2xl;
   }
 
   .tag {
-    @apply inline-block px-2 py-1 text-xs font-medium rounded-md bg-meridian-light-gray dark:bg-gray-700 text-meridian-steel dark:text-gray-300 hover:bg-meridian-steel hover:text-white dark:hover:bg-meridian-steel dark:hover:text-white transition-colors;
+    @apply inline-block rounded-full bg-meridian-light-gray px-3 py-1 text-xs font-medium text-meridian-steel transition-all duration-200 hover:bg-meridian-steel hover:text-white hover:shadow-md dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-meridian-steel dark:hover:text-white;
   }
 }
 
@@ -58,9 +67,80 @@
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .gradient-meridian {
     @apply bg-gradient-to-r from-meridian-burgundy to-meridian-steel;
+  }
+
+  .gradient-meridian-subtle {
+    @apply bg-gradient-to-br from-meridian-burgundy/10 via-transparent to-meridian-steel/10;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-sm backdrop-saturate-150;
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+
+  .dark .glass-effect {
+    background-color: rgba(31, 41, 55, 0.75);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -93,7 +173,7 @@ details[open] summary svg {
 }
 
 .toc > div::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  @apply rounded-full bg-gray-300 dark:bg-gray-600;
 }
 
 .toc > div::-webkit-scrollbar-thumb:hover {

@@ -3,43 +3,107 @@ import { getUrl } from '../utils/links';
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-meridian-light-gray dark:bg-gray-800 mt-auto transition-colors">
+<footer
+  class="gradient-meridian-subtle mt-auto border-t border-meridian-light-gray/50 bg-white transition-colors dark:border-gray-700/50 dark:bg-gray-900"
+>
   <div class="container py-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
       <div>
-        <h3 class="font-semibold mb-2">Project Meridian</h3>
-        <p class="text-sm text-meridian-steel dark:text-gray-400">
-          Insights and updates from the forefront of innovation.
+        <h3 class="mb-4 text-lg font-bold text-meridian-burgundy dark:text-meridian-steel">
+          Project Meridian
+        </h3>
+        <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+          Navigating beyond convention to find your authentic path to meaningful impact.
         </p>
       </div>
-      
+
       <div>
-        <h3 class="font-semibold mb-2">Quick Links</h3>
-        <ul class="space-y-1 text-sm">
-          <li><a href={getUrl('articles')} class="text-meridian-steel dark:text-gray-400 hover:text-meridian-burgundy dark:hover:text-meridian-steel">Articles</a></li>
-          <li><a href={getUrl('about')} class="text-meridian-steel dark:text-gray-400 hover:text-meridian-burgundy dark:hover:text-meridian-steel">About</a></li>
-          <li><a href={getUrl('tags')} class="text-meridian-steel dark:text-gray-400 hover:text-meridian-burgundy dark:hover:text-meridian-steel">Browse Tags</a></li>
-          <li><a href={getUrl('rss.xml')} class="text-meridian-steel dark:text-gray-400 hover:text-meridian-burgundy dark:hover:text-meridian-steel">RSS Feed</a></li>
+        <h3 class="mb-4 text-lg font-bold text-meridian-burgundy dark:text-meridian-steel">
+          Explore
+        </h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a
+              href={getUrl('articles')}
+              class="group inline-flex items-center text-gray-600 transition-all duration-200 hover:text-meridian-burgundy dark:text-gray-400 dark:hover:text-meridian-steel"
+            >
+              <span class="transition-transform duration-200 group-hover:translate-x-1">
+                Articles
+              </span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={getUrl('about')}
+              class="group inline-flex items-center text-gray-600 transition-all duration-200 hover:text-meridian-burgundy dark:text-gray-400 dark:hover:text-meridian-steel"
+            >
+              <span class="transition-transform duration-200 group-hover:translate-x-1">
+                About
+              </span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={getUrl('tags')}
+              class="group inline-flex items-center text-gray-600 transition-all duration-200 hover:text-meridian-burgundy dark:text-gray-400 dark:hover:text-meridian-steel"
+            >
+              <span class="transition-transform duration-200 group-hover:translate-x-1">
+                Browse Tags
+              </span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={getUrl('rss.xml')}
+              class="group inline-flex items-center text-gray-600 transition-all duration-200 hover:text-meridian-burgundy dark:text-gray-400 dark:hover:text-meridian-steel"
+            >
+              <span class="transition-transform duration-200 group-hover:translate-x-1">
+                RSS Feed
+              </span>
+            </a>
+          </li>
         </ul>
       </div>
-      
+
       <div>
-        <h3 class="font-semibold mb-2">Connect</h3>
-        <p class="text-sm text-meridian-steel dark:text-gray-400 mb-2">
-          Questions? Ideas? Let's talk.
+        <h3 class="mb-4 text-lg font-bold text-meridian-burgundy dark:text-meridian-steel">
+          Let's Connect
+        </h3>
+        <p class="mb-3 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+          Ready to navigate beyond the status quo?
         </p>
-        <a href="mailto:info@eudexio.com" class="text-sm text-meridian-burgundy dark:text-meridian-steel hover:text-meridian-dark dark:hover:text-meridian-light-gray">
+        <a
+          href="mailto:info@eudexio.com"
+          class="group inline-flex items-center gap-2 rounded-lg bg-meridian-burgundy/10 px-4 py-2 text-sm font-medium text-meridian-burgundy transition-all duration-200 hover:bg-meridian-burgundy hover:text-white dark:bg-meridian-steel/10 dark:text-meridian-steel dark:hover:bg-meridian-steel dark:hover:text-white"
+        >
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            ></path>
+          </svg>
           info@eudexio.com
         </a>
       </div>
     </div>
-    
-    <div class="mt-8 pt-8 border-t border-meridian-steel/20 dark:border-gray-700">
+
+    <div class="mt-8 border-t border-gray-200 pt-8 dark:border-gray-700">
       <div class="flex flex-col items-center gap-4">
-        <img src={getUrl('meridianlogo.svg')} alt="Project Meridian Logo" class="h-12 w-12" />
-        <p class="text-sm text-meridian-steel dark:text-gray-400">
-          &copy; {year} Project Meridian. All rights reserved.
-        </p>
+        <img
+          src={getUrl('meridianlogo.svg')}
+          alt="Project Meridian Logo"
+          class="h-12 w-12 opacity-60 transition-all duration-300 hover:opacity-100"
+        />
+        <div class="flex flex-col items-center gap-2 text-center">
+          <p class="text-sm font-medium text-gray-600 dark:text-gray-400">
+            &copy; {year} Project Meridian
+          </p>
+          <p class="text-xs text-gray-500 dark:text-gray-500">
+            Charting paths beyond conventional wisdom.
+          </p>
+        </div>
       </div>
     </div>
   </div>

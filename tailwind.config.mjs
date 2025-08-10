@@ -5,16 +5,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        'meridian': {
-          'burgundy': '#4A2532',
-          'steel': '#607D8B',
+        meridian: {
+          burgundy: '#4A2532',
+          steel: '#607D8B',
           'light-gray': '#E0E4E8',
-          'dark': '#1A1A1A',
-          'text': '#333333',
-        }
+          dark: '#1A1A1A',
+          text: '#333333',
+        },
       },
       fontFamily: {
-        'sans': ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: [
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica',
+          'Arial',
+          'sans-serif',
+        ],
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -128,7 +137,5 @@ export default {
       }),
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
-}
+  plugins: [require('@tailwindcss/typography')],
+};

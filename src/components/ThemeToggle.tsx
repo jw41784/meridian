@@ -29,7 +29,7 @@ export default function ThemeToggle() {
 
   // Prevent hydration mismatch
   if (!mounted) {
-    return <div className="w-10 h-10" />;
+    return <div className="h-10 w-10" />;
   }
 
   const toggleTheme = () => {
@@ -39,12 +39,12 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors"
+      className="rounded-lg bg-gray-100 p-2 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
       {theme === 'light' ? (
         <svg
-          className="w-6 h-6 text-gray-800 dark:text-gray-200"
+          className="h-6 w-6 text-gray-800 dark:text-gray-200"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -58,7 +58,7 @@ export default function ThemeToggle() {
         </svg>
       ) : (
         <svg
-          className="w-6 h-6 text-gray-800 dark:text-gray-200"
+          className="h-6 w-6 text-gray-800 dark:text-gray-200"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
