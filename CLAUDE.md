@@ -96,6 +96,36 @@
    - ✅ Max heights: Desktop (viewport - 10rem), Mobile (24rem)
    - ✅ Automatically generates IDs for headings without them
 
+### Visual Design & Code Quality Enhancements (January 10, 2025)
+13. **Prettier Integration**
+   - ✅ Installed Prettier with Astro and Tailwind plugins
+   - ✅ Created `.prettierrc` configuration file
+   - ✅ Added `.prettierignore` for excluded files
+   - ✅ Added npm scripts: `format` and `format:check`
+   - ✅ Formatted entire codebase for consistency
+
+14. **Enhanced Visual Design**
+   - ✅ **Article Cards**: Modern hover effects, image zoom, author avatars with initials
+   - ✅ **Navigation**: Glassmorphism effect, sticky header, active link indicators
+   - ✅ **Footer**: Gradient backgrounds, email CTA button, improved link animations
+   - ✅ **Homepage**: Animated background blobs, fade-in/slide-up animations, larger typography
+   - ✅ **Buttons**: Enhanced with gradient overlays and shadow effects
+   - ✅ **Tags**: Changed to rounded pills with hashtags and hover scaling
+
+15. **Animation System**
+   - ✅ Added CSS keyframe animations (float, fadeIn, slideUp)
+   - ✅ Implemented staggered animations for article cards
+   - ✅ Added hover lift effects throughout
+   - ✅ Smooth transitions on all interactive elements
+   - ✅ Hardware-accelerated transforms for performance
+
+16. **Typography & Spacing Improvements**
+   - ✅ Enhanced article page metadata display with icons
+   - ✅ Improved prose styling with better link colors
+   - ✅ Better visual hierarchy with font weights and sizes
+   - ✅ Consistent spacing using Tailwind utilities
+   - ✅ Line-clamp for article descriptions
+
 ## 🚀 Recommended Next Steps
 
 ### Phase 1: Enhanced User Experience (Week 1-2)
@@ -251,19 +281,21 @@ Track these KPIs:
 ## 🛠️ Development Commands
 
 ```bash
-# Run linting and type checks
-npm run lint
-npm run typecheck
+# Development
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
 
-# Run tests
-npm run test
-npm run test:e2e
+# Code Formatting
+npm run format       # Format all files with Prettier
+npm run format:check # Check formatting without changes
 
-# Check bundle size
-npm run analyze
-
-# Update dependencies
-npm run update
+# Future Commands (to be implemented)
+npm run lint         # Run linting
+npm run typecheck    # Run TypeScript checks
+npm run test         # Run tests
+npm run test:e2e     # Run E2E tests
+npm run analyze      # Check bundle size
 ```
 
 ## 🔐 Security Considerations
@@ -303,7 +335,7 @@ npm run update
 - Regular dependency updates
 - Monitor Core Web Vitals
 
-## 📧 Current Site Status (June 1, 2025)
+## 📧 Current Site Status (January 10, 2025)
 
 **Live URL**: https://jw41784.github.io/meridian/
 
@@ -320,10 +352,12 @@ npm run update
 
 **Key Features**:
 - **Dark Mode**: Full theme support with toggle, respects system preference
-- **Reading Time**: Displayed on all article cards and pages
-- **Table of Contents**: Auto-generated for articles > 5 minutes
+- **Reading Time**: Displayed on all article cards and pages with clock icon
+- **Table of Contents**: Auto-generated for articles > 5 minutes with sticky sidebar
 - **Responsive Design**: Optimized for mobile, tablet, and desktop
 - **Search**: Client-side search across all articles
+- **Modern UI**: Glassmorphism, gradients, animations, and hover effects
+- **Code Quality**: Prettier formatting with consistent code style
 
 **Brand Philosophy**:
 - **Core Concept**: Meridian line as "true north" for authentic leadership
@@ -357,10 +391,23 @@ npm run update
 - **Scrolling**: Independent scroll container with custom scrollbar styling
 - **Active Tracking**: Intersection Observer API with 20% top margin
 
+### Visual Design System
+- **Colors**: Meridian brand colors with proper dark mode variants
+- **Animations**: Float, fade-in, slide-up with staggered delays
+- **Effects**: Glassmorphism, gradients, shadows, hover transforms
+- **Components**: Modern card design, rounded corners, consistent spacing
+- **Typography**: Improved hierarchy, better link styling, icon integration
+
+### Code Quality Tools
+- **Prettier**: Configured with Astro and Tailwind plugins
+- **Formatting**: Consistent code style across all files
+- **NPM Scripts**: format and format:check commands
+- **Git Hooks**: Ready for pre-commit hooks integration
+
 ---
 
-**Last Updated**: June 1, 2025
-**Next Review**: July 1, 2025
+**Last Updated**: January 10, 2025
+**Next Review**: February 1, 2025
 
 **Development Techniques**
 - Use puppeteer to check work
