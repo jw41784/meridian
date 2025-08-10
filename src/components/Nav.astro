@@ -24,7 +24,7 @@ function isActive(itemHref: string): boolean {
 >
   <nav class="container py-4">
     <!-- Mobile Layout -->
-    <div class="flex items-center justify-between gap-2 md:hidden">
+    <div class="flex items-center justify-between gap-1 md:hidden">
       <a
         href={getUrl()}
         class="group flex items-center gap-2 transition-transform duration-300 hover:scale-105"
@@ -32,21 +32,21 @@ function isActive(itemHref: string): boolean {
         <img
           src="/meridian/meridianlogo.svg"
           alt="Project Meridian Logo"
-          class="h-7 w-7 transition-transform duration-500 group-hover:rotate-12"
+          class="h-6 w-6 flex-shrink-0 transition-transform duration-500 group-hover:rotate-12"
         />
-        <span class="gradient-meridian bg-clip-text text-lg font-bold text-transparent">
-          Meridian
+        <span class="gradient-meridian bg-clip-text text-base font-bold text-transparent whitespace-nowrap">
+          Project Meridian
         </span>
       </a>
 
-      <div class="flex items-center gap-2">
-        <ul class="flex items-center space-x-4">
+      <div class="flex items-center gap-1">
+        <ul class="flex items-center space-x-2">
           {
             navItems.map((item) => (
               <li>
                 <a
                   href={item.href}
-                  class={`relative text-sm font-medium transition-all duration-300 ${
+                  class={`relative text-xs font-medium transition-all duration-300 px-1 ${
                     isActive(item.href)
                       ? 'text-meridian-burgundy dark:text-meridian-steel'
                       : 'text-gray-600 hover:text-meridian-burgundy dark:text-gray-400 dark:hover:text-meridian-steel'
@@ -61,7 +61,9 @@ function isActive(itemHref: string): boolean {
             ))
           }
         </ul>
-        <ThemeToggle client:load />
+        <div class="ml-1">
+          <ThemeToggle client:load />
+        </div>
       </div>
     </div>
 
