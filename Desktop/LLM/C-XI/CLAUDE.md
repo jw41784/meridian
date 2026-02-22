@@ -105,6 +105,14 @@ The app must work without internet. Design: Service Worker + IndexedDB as a PWA.
 - Finalization is online-only
 - Service worker caches app shell for fully offline launches
 
+### Sandbox Mode (Planned — Milestone 0 in ROADMAP.md)
+
+Set `NEXT_PUBLIC_SANDBOX=true` in `.env.local` to run the full app without Supabase. Mock data layer in `src/lib/sandbox/` provides in-memory auth, sessions, scores, users, and norms. Includes a role-switcher widget to test all 3 permission levels. Design doc: `exi-platform/docs/plans/2026-02-22-sandbox-mode-design.md`
+
+### Master Dashboard (Planned — Milestone 0.4 in ROADMAP.md)
+
+`/admin/dashboard` — administrators-only operations view showing all sessions across consultants, analytics cards, consultant workload, norm/case status, and user activity. Separate from the per-consultant dashboard at `/`.
+
 ## Current State
 
 The scoring engine is production-ready (103 passing tests). The UI is feature-complete for scoring workflows. **The critical gap is Supabase persistence** — scores are stored in the reducer but not yet saved to the database. See `ROADMAP.md` for remaining milestones.
