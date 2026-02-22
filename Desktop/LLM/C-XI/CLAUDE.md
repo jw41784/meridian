@@ -95,6 +95,16 @@ Scoring types: `Dimension` (cct_critical|cct_conceptual|isa_interpersonal|isa_so
 - UI primitives are Radix-based in `src/components/ui/`. Scoring-specific components are in `src/components/scoring/` (20 components).
 - Environment variables: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_APP_URL`. See `.env.example`.
 
+### Offline Architecture (Planned — Milestone 5 in ROADMAP.md)
+
+The app must work without internet. Design: Service Worker + IndexedDB as a PWA. IndexedDB is the primary local store; Supabase syncs when online. Key decisions:
+- IndexedDB database `exi-offline` with stores: `sessions`, `scores`, `cases`, `sync-queue`, `sync-meta`
+- `useAutoSave` writes to IndexedDB first, pushes to Supabase when online (replaces current localStorage queue)
+- Sessions can be created offline with client-side UUIDs
+- Co-scorer conflicts avoided by keying scores per assessor — calibration page compares separate score sets
+- Finalization is online-only
+- Service worker caches app shell for fully offline launches
+
 ## Current State
 
 The scoring engine is production-ready (103 passing tests). The UI is feature-complete for scoring workflows. **The critical gap is Supabase persistence** — scores are stored in the reducer but not yet saved to the database. See `ROADMAP.md` for remaining milestones.
